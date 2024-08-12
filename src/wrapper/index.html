@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/x-icon" href="/wrapper/favicon.ico" />
+		<title>interactive wrapper test page</title>
+
+		<link rel="stylesheet" href="../_global/styles/styles.scss" />
+		<link rel="stylesheet" href="./wrapper-styles.scss" />
+	</head>
+
+	<body class="wrapper">
+		<h2>wrapper iframe <button id="btn-terminate" class="btn-standard" type="button">terminate</button></h2>
+
+		<iframe id="interactive-iframe" frameborder="0" title="The Iframe"></iframe>
+		<!-- <iframe id="interactive-iframe" src="/interactive/index.html" frameborder="0" title="The Iframe"></iframe> -->
+		<!-- <iframe id="interactive-iframe" src="http://10.0.0.148:5173/#/start" frameborder="0" title="The Iframe"></iframe> -->
+	</body>
+
+	<script src="wrapper.ts" type="module"></script>
+</html>

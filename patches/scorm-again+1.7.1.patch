@@ -1,0 +1,494 @@
+diff --git a/node_modules/scorm-again/src/BaseAPI.js b/node_modules/scorm-again/src/BaseAPI.js
+index 86591f0..f22c061 100644
+--- a/node_modules/scorm-again/src/BaseAPI.js
++++ b/node_modules/scorm-again/src/BaseAPI.js
+@@ -73,7 +73,7 @@ export default class BaseAPI {
+     },
+   };
+   cmi;
+-  startingData: {};
++  startingData;
+ 
+   /**
+    * Constructor for Base API class. Sets some shared API fields, as well as
+@@ -105,9 +105,9 @@ export default class BaseAPI {
+    * @return {string}
+    */
+   initialize(
+-      callbackName: String,
+-      initializeMessage?: String,
+-      terminationMessage?: String) {
++      callbackName,
++      initializeMessage,
++      terminationMessage) {
+     let returnValue = global_constants.SCORM_FALSE;
+ 
+     if (this.isInitialized()) {
+@@ -152,7 +152,7 @@ export default class BaseAPI {
+    * Setter for #settings
+    * @param {object} settings
+    */
+-  set settings(settings: Object) {
++  set settings(settings) {
+     this.#settings = {...this.#settings, ...settings};
+   }
+ 
+@@ -163,8 +163,8 @@ export default class BaseAPI {
+    * @return {string}
+    */
+   terminate(
+-      callbackName: String,
+-      checkTerminated: boolean) {
++      callbackName,
++      checkTerminated) {
+     let returnValue = global_constants.SCORM_FALSE;
+ 
+     if (this.checkState(checkTerminated,
+@@ -202,9 +202,9 @@ export default class BaseAPI {
+    * @return {string}
+    */
+   getValue(
+-      callbackName: String,
+-      checkTerminated: boolean,
+-      CMIElement: String) {
++      callbackName,
++      checkTerminated,
++      CMIElement) {
+     let returnValue;
+ 
+     if (this.checkState(checkTerminated,
+@@ -247,9 +247,9 @@ export default class BaseAPI {
+    * @return {string}
+    */
+   setValue(
+-      callbackName: String,
+-      commitCallback: String,
+-      checkTerminated: boolean,
++      callbackName,
++      commitCallback,
++      checkTerminated,
+       CMIElement,
+       value) {
+     if (value !== undefined) {
+@@ -305,8 +305,8 @@ export default class BaseAPI {
+    * @return {string}
+    */
+   commit(
+-      callbackName: String,
+-      checkTerminated: boolean) {
++      callbackName,
++      checkTerminated) {
+     this.clearScheduledCommit();
+ 
+     let returnValue = global_constants.SCORM_FALSE;
+@@ -341,7 +341,7 @@ export default class BaseAPI {
+    * @param {string} callbackName
+    * @return {string}
+    */
+-  getLastError(callbackName: String) {
++  getLastError(callbackName) {
+     const returnValue = String(this.lastErrorCode);
+ 
+     this.processListeners(callbackName);
+@@ -359,7 +359,7 @@ export default class BaseAPI {
+    * @param {(string|number)} CMIErrorCode
+    * @return {string}
+    */
+-  getErrorString(callbackName: String, CMIErrorCode) {
++  getErrorString(callbackName, CMIErrorCode) {
+     let returnValue = '';
+ 
+     if (CMIErrorCode !== null && CMIErrorCode !== '') {
+@@ -380,7 +380,7 @@ export default class BaseAPI {
+    * @param {(string|number)} CMIErrorCode
+    * @return {string}
+    */
+-  getDiagnostic(callbackName: String, CMIErrorCode) {
++  getDiagnostic(callbackName, CMIErrorCode) {
+     let returnValue = '';
+ 
+     if (CMIErrorCode !== null && CMIErrorCode !== '') {
+@@ -403,9 +403,9 @@ export default class BaseAPI {
+    * @return {boolean}
+    */
+   checkState(
+-      checkTerminated: boolean,
+-      beforeInitError: number,
+-      afterTermError?: number) {
++      checkTerminated,
++      beforeInitError,
++      afterTermError) {
+     if (this.isNotInitialized()) {
+       this.throwSCORMError(beforeInitError);
+       return false;
+@@ -426,10 +426,10 @@ export default class BaseAPI {
+    * @param {number}messageLevel
+    */
+   apiLog(
+-      functionName: String,
+-      CMIElement: String,
+-      logMessage: String,
+-      messageLevel: number) {
++      functionName,
++      CMIElement,
++      logMessage,
++      messageLevel) {
+     logMessage = this.formatMessage(functionName, CMIElement, logMessage);
+ 
+     if (messageLevel >= this.apiLogLevel) {
+@@ -445,7 +445,7 @@ export default class BaseAPI {
+    * @param {string} message
+    * @return {string}
+    */
+-  formatMessage(functionName: String, CMIElement: String, message: String) {
++  formatMessage(functionName, CMIElement, message) {
+     const baseLength = 20;
+     let messageString = '';
+ 
+@@ -485,7 +485,7 @@ export default class BaseAPI {
+    * @param {string} tester String to check for
+    * @return {boolean}
+    */
+-  stringMatches(str: String, tester: String) {
++  stringMatches(str, tester) {
+     return str && tester && str.match(tester);
+   }
+ 
+@@ -496,7 +496,7 @@ export default class BaseAPI {
+    * @return {boolean}
+    * @private
+    */
+-  _checkObjectHasProperty(refObject, attribute: String) {
++  _checkObjectHasProperty(refObject, attribute) {
+     return Object.hasOwnProperty.call(refObject, attribute) ||
+       Object.getOwnPropertyDescriptor(
+           Object.getPrototypeOf(refObject), attribute) ||
+@@ -552,7 +552,7 @@ export default class BaseAPI {
+    * @return {string}
+    */
+   _commonSetCMIValue(
+-      methodName: String, scorm2004: boolean, CMIElement, value) {
++      methodName, scorm2004, CMIElement, value) {
+     if (!CMIElement || CMIElement === '') {
+       return global_constants.SCORM_FALSE;
+     }
+@@ -667,7 +667,7 @@ export default class BaseAPI {
+    * @param {string} CMIElement
+    * @return {*}
+    */
+-  _commonGetCMIValue(methodName: String, scorm2004: boolean, CMIElement) {
++  _commonGetCMIValue(methodName, scorm2004, CMIElement) {
+     if (!CMIElement || CMIElement === '') {
+       return '';
+     }
+@@ -776,7 +776,7 @@ export default class BaseAPI {
+    * @param {string} listenerName
+    * @param {function} callback
+    */
+-  on(listenerName: String, callback: function) {
++  on(listenerName, callback) {
+     if (!callback) return;
+ 
+     const listenerFunctions = listenerName.split(' ');
+@@ -807,7 +807,7 @@ export default class BaseAPI {
+    * @param {string} listenerName
+    * @param {function} callback
+    */
+-  off(listenerName: String, callback: function) {
++  off(listenerName, callback) {
+     if (!callback) return;
+ 
+     const listenerFunctions = listenerName.split(' ');
+@@ -839,7 +839,7 @@ export default class BaseAPI {
+    *
+    * @param {string} listenerName
+    */
+-  clear(listenerName: String) {
++  clear(listenerName) {
+     const listenerFunctions = listenerName.split(' ');
+     for (let i = 0; i < listenerFunctions.length; i++) {
+       const listenerSplit = listenerFunctions[i].split('.');
+@@ -866,7 +866,7 @@ export default class BaseAPI {
+    * @param {string} CMIElement
+    * @param {*} value
+    */
+-  processListeners(functionName: String, CMIElement: String, value: any) {
++  processListeners(functionName, CMIElement, value) {
+     this.apiLog(functionName, CMIElement, value);
+     for (let i = 0; i < this.listenerArray.length; i++) {
+       const listener = this.listenerArray[i];
+@@ -894,7 +894,7 @@ export default class BaseAPI {
+    * @param {number} errorNumber
+    * @param {string} message
+    */
+-  throwSCORMError(errorNumber: number, message: String) {
++  throwSCORMError(errorNumber, message) {
+     if (!message) {
+       message = this.getLmsErrorMessageDetails(errorNumber);
+     }
+@@ -910,7 +910,7 @@ export default class BaseAPI {
+    *
+    * @param {string} success
+    */
+-  clearSCORMError(success: String) {
++  clearSCORMError(success) {
+     if (success !== undefined && success !== global_constants.SCORM_FALSE) {
+       this.lastErrorCode = 0;
+     }
+@@ -1088,7 +1088,7 @@ export default class BaseAPI {
+    * @param {boolean} immediate
+    * @return {object}
+    */
+-  processHttpRequest(url: String, params, immediate = false) {
++  processHttpRequest(url, params, immediate = false) {
+     const api = this;
+     const process = function(url, params, settings, error_codes) {
+       const genericError = {
+@@ -1214,7 +1214,7 @@ export default class BaseAPI {
+    * @param {number} when - the number of milliseconds to wait before committing
+    * @param {string} callback - the name of the commit event callback
+    */
+-  scheduleCommit(when: number, callback: string) {
++  scheduleCommit(when, callback) {
+     this.#timeout = new ScheduledCommit(this, when, callback);
+     this.apiLog('scheduleCommit', '', 'scheduled',
+         global_constants.LOG_LEVEL_DEBUG);
+@@ -1248,7 +1248,7 @@ class ScheduledCommit {
+    * @param {number} when
+    * @param {string} callback
+    */
+-  constructor(API: any, when: number, callback: string) {
++  constructor(API, when, callback) {
+     this.#API = API;
+     this.#timeout = setTimeout(this.wrapper.bind(this), when);
+     this.#callback = callback;
+diff --git a/node_modules/scorm-again/src/Scorm12API.js b/node_modules/scorm-again/src/Scorm12API.js
+index bb3612d..5aef54c 100644
+--- a/node_modules/scorm-again/src/Scorm12API.js
++++ b/node_modules/scorm-again/src/Scorm12API.js
+@@ -23,7 +23,7 @@ export default class Scorm12API extends BaseAPI {
+    * Constructor for SCORM 1.2 API
+    * @param {object} settings
+    */
+-  constructor(settings: {}) {
++  constructor(settings) {
+     const finalSettings = {
+       ...{
+         mastery_override: false,
+@@ -235,7 +235,7 @@ export default class Scorm12API extends BaseAPI {
+    * @param {boolean} terminateCommit
+    * @return {object|Array}
+    */
+-  renderCommitCMI(terminateCommit: boolean) {
++  renderCommitCMI(terminateCommit) {
+     const cmiExport = this.renderCMIToJSONObject();
+ 
+     if (terminateCommit) {
+@@ -266,7 +266,7 @@ export default class Scorm12API extends BaseAPI {
+    * @param {boolean} terminateCommit
+    * @return {string}
+    */
+-  storeData(terminateCommit: boolean) {
++  storeData(terminateCommit) {
+     if (terminateCommit) {
+       const originalStatus = this.cmi.core.lesson_status;
+       if (originalStatus === 'not attempted') {
+diff --git a/node_modules/scorm-again/src/cmi/common.js b/node_modules/scorm-again/src/cmi/common.js
+index fca8a23..90581d8 100644
+--- a/node_modules/scorm-again/src/cmi/common.js
++++ b/node_modules/scorm-again/src/cmi/common.js
+@@ -18,11 +18,11 @@ const scorm12_error_codes = ErrorCodes.scorm12;
+  * @return {boolean}
+  */
+ export function checkValidFormat(
+-    value: String,
+-    regexPattern: String,
+-    errorCode: number,
+-    errorClass: function,
+-    allowEmptyString?: boolean) {
++    value,
++    regexPattern,
++    errorCode,
++    errorClass,
++    allowEmptyString) {
+   const formatRegex = new RegExp(regexPattern);
+   const matches = value.match(formatRegex);
+   if (allowEmptyString && value === '') {
+@@ -44,10 +44,10 @@ export function checkValidFormat(
+  * @return {boolean}
+  */
+ export function checkValidRange(
+-    value: any,
+-    rangePattern: String,
+-    errorCode: number,
+-    errorClass: function) {
++    value,
++    rangePattern,
++    errorCode,
++    errorClass) {
+   const ranges = rangePattern.split('#');
+   value = value * 1.0;
+   if (value >= ranges[0]) {
+diff --git a/node_modules/scorm-again/src/cmi/scorm12_cmi.js b/node_modules/scorm-again/src/cmi/scorm12_cmi.js
+index 4d75039..09a4b6e 100644
+--- a/node_modules/scorm-again/src/cmi/scorm12_cmi.js
++++ b/node_modules/scorm-again/src/cmi/scorm12_cmi.js
+@@ -46,9 +46,9 @@ function throwInvalidValueError() {
+  * @return {boolean}
+  */
+ export function check12ValidFormat(
+-    value: String,
+-    regexPattern: String,
+-    allowEmptyString?: boolean) {
++    value,
++    regexPattern,
++    allowEmptyString) {
+   return checkValidFormat(
+       value,
+       regexPattern,
+@@ -66,9 +66,9 @@ export function check12ValidFormat(
+  * @return {boolean}
+  */
+ export function check12ValidRange(
+-    value: any,
+-    rangePattern: String,
+-    allowEmptyString?: boolean) {
++    value,
++    rangePattern,
++    allowEmptyString) {
+   return checkValidRange(
+       value,
+       rangePattern,
+@@ -96,7 +96,7 @@ export class CMI extends BaseCMI {
+    * @param {(CMIStudentData|AICCCMIStudentData)} student_data
+    * @param {boolean} initialized
+    */
+-  constructor(cmi_children, student_data, initialized: boolean) {
++  constructor(cmi_children, student_data, initialized) {
+     super();
+ 
+     if (initialized) this.initialize();
+@@ -529,7 +529,7 @@ class CMICore extends BaseCMI {
+    * @param {Number} start_time
+    * @return {string}
+    */
+-  getCurrentTotalTime(start_time: Number) {
++  getCurrentTotalTime(start_time) {
+     let sessionTime = this.#session_time;
+     const startTime = start_time;
+ 
+diff --git a/node_modules/scorm-again/src/exceptions.js b/node_modules/scorm-again/src/exceptions.js
+index f8e3878..229dd3e 100644
+--- a/node_modules/scorm-again/src/exceptions.js
++++ b/node_modules/scorm-again/src/exceptions.js
+@@ -16,7 +16,7 @@ export class ValidationError extends Error {
+    * @param {string} errorMessage
+    * @param {string} detailedMessage
+    */
+-  constructor(errorCode: number, errorMessage: String, detailedMessage: String) {
++  constructor(errorCode, errorMessage, detailedMessage) {
+     super(errorMessage);
+     this.#errorCode = errorCode;
+     this.#errorMessage = errorMessage;
+@@ -60,7 +60,7 @@ export class Scorm12ValidationError extends ValidationError {
+    * Constructor to take in an error code
+    * @param {number} errorCode
+    */
+-  constructor(errorCode: number) {
++  constructor(errorCode) {
+     if ({}.hasOwnProperty.call(scorm12_errors, String(errorCode))) {
+       super(errorCode, scorm12_errors[String(errorCode)].basicMessage, scorm12_errors[String(errorCode)].detailMessage);
+     } else {
+@@ -77,7 +77,7 @@ export class AICCValidationError extends ValidationError {
+    * Constructor to take in an error code
+    * @param {number} errorCode
+    */
+-  constructor(errorCode: number) {
++  constructor(errorCode) {
+     if ({}.hasOwnProperty.call(aicc_errors, String(errorCode))) {
+       super(errorCode, aicc_errors[String(errorCode)].basicMessage, aicc_errors[String(errorCode)].detailMessage);
+     } else {
+@@ -94,7 +94,7 @@ export class Scorm2004ValidationError extends ValidationError {
+    * Constructor to take in an error code
+    * @param {number} errorCode
+    */
+-  constructor(errorCode: number) {
++  constructor(errorCode) {
+     if ({}.hasOwnProperty.call(scorm2004_errors, String(errorCode))) {
+       super(errorCode, scorm2004_errors[String(errorCode)].basicMessage, scorm2004_errors[String(errorCode)].detailMessage);
+     } else {
+diff --git a/node_modules/scorm-again/src/utilities.js b/node_modules/scorm-again/src/utilities.js
+index 10e5a2a..fdaf2fc 100644
+--- a/node_modules/scorm-again/src/utilities.js
++++ b/node_modules/scorm-again/src/utilities.js
+@@ -17,7 +17,7 @@ const designations = [
+  * @param {Number} totalSeconds
+  * @return {string}
+  */
+-export function getSecondsAsHHMMSS(totalSeconds: Number) {
++export function getSecondsAsHHMMSS(totalSeconds) {
+   // SCORM spec does not deal with negative durations, give zero back
+   if (!totalSeconds || totalSeconds <= 0) {
+     return '00:00:00';
+@@ -50,7 +50,7 @@ export function getSecondsAsHHMMSS(totalSeconds: Number) {
+  * @param {Number} seconds
+  * @return {String}
+  */
+-export function getSecondsAsISODuration(seconds: Number) {
++export function getSecondsAsISODuration(seconds) {
+   // SCORM spec does not deal with negative durations, give zero back
+   if (!seconds || seconds <= 0) {
+     return 'PT0S';
+@@ -92,7 +92,7 @@ export function getSecondsAsISODuration(seconds: Number) {
+  * @param {RegExp} timeRegex
+  * @return {number}
+  */
+-export function getTimeAsSeconds(timeString: String, timeRegex: RegExp) {
++export function getTimeAsSeconds(timeString, timeRegex) {
+   if (!timeString || typeof timeString !== 'string' ||
+       !timeString.match(timeRegex)) {
+     return 0;
+@@ -111,7 +111,7 @@ export function getTimeAsSeconds(timeString: String, timeRegex: RegExp) {
+  * @param {RegExp} durationRegex
+  * @return {number}
+  */
+-export function getDurationAsSeconds(duration: String, durationRegex: RegExp) {
++export function getDurationAsSeconds(duration, durationRegex) {
+   if (!duration || !duration.match(durationRegex)) {
+     return 0;
+   }
+@@ -139,9 +139,9 @@ export function getDurationAsSeconds(duration: String, durationRegex: RegExp) {
+  * @return {string}
+  */
+ export function addTwoDurations(
+-    first: String,
+-    second: String,
+-    durationRegex: RegExp) {
++    first,
++    second,
++    durationRegex) {
+   return getSecondsAsISODuration(
+       getDurationAsSeconds(first, durationRegex) +
+       getDurationAsSeconds(second, durationRegex),
+@@ -157,9 +157,9 @@ export function addTwoDurations(
+  * @return {string}
+  */
+ export function addHHMMSSTimeStrings(
+-    first: String,
+-    second: String,
+-    timeRegex: RegExp) {
++    first,
++    second,
++    timeRegex) {
+   return getSecondsAsHHMMSS(
+       getTimeAsSeconds(first, timeRegex) +
+       getTimeAsSeconds(
+@@ -235,7 +235,7 @@ export function unflatten(data) {
+  * @param {number} num
+  * @return {number}
+  */
+-export function countDecimals(num: number) {
++export function countDecimals(num) {
+   if (Math.floor(num) === num || String(num).indexOf('.') < 0) return 0;
+   const parts = num.toString().split('.')[1];
+   return parts.length || 0;

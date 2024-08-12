@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/x-icon" href="/parent/favicon.ico" />
+		<title>interactive wrapper test page</title>
+
+		<link rel="stylesheet" href="../_global/styles/styles.scss" />
+		<link rel="stylesheet" href="./parent-styles.scss" />
+	</head>
+
+	<body class="parent">
+		<h1>parent server (cms)</h1>
+		<iframe id="wrapper-iframe" src="../wrapper/index.html" frameborder="0" title="The Iframe"></iframe>
+
+		<div id="scorm-log"></div>
+
+		<div>
+			<button id="btn-clear-log" class="btn-standard btn-clear-log" type="button">clear log</button>
+		</div>
+	</body>
+
+	<script src="./parent.ts" type="module"></script>
+</html>

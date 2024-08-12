@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="en-US">
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>simpleshow interactive | framework test package</title>
+
+		<!-- <link rel="stylesheet" href="https://use.typekit.net/bkj5fss.css" /> -->
+
+		<link rel="stylesheet" href="css/style.min.css" />
+	</head>
+	<body id="interactive" class="si-bg-slides" ontouchstart="">
+		<div class="reveal">
+			<h3 class="server-name">interactive iframe</h3>
+			<div class="slides shadow">
+				<!------- Preloader --------->
+				<div id="Preloader">
+					<div class="preloader-wrapper">
+						<img class="test-1" src="media/imgs/_imgs/preloader.svg" />
+					</div>
+					<p id="preloader_text_1">Loading ...</p>
+					<p id="preloader_text_2">Please click anywhere to start.</p>
+				</div>
+
+				<!------- Guidelines --------->
+				<!-- <img id="guidelines-2" class="si-guidelines" src="./media/imgs/_imgs/grid2.svg" alt="" /> -->
+				<div id="guidelines">
+					<div class="guidelines guidelines-1"></div>
+					<div class="guidelines guidelines-2"></div>
+					<!-- <img class="si-guidelines" src="./media/imgs/_imgs/grid.svg" alt="" /> -->
+				</div>
+
+				<section id="start">
+					<header>
+						<img data-src="./media/imgs/_imgs/logo.svg" alt="" />
+						<h1>Welcome to the simpleshow framework!</h1>
+						<p>This test package will help us identify potential<br />incompatibilities with your IT infrastructure<br />to ensure they are addressed or fixed<br />long before your project is<br />scheduled to launch!</p>
+						<button id="btn-start" class="si-btn-clean">Let's go!</button>
+					</header>
+					<img class="maria-start" data-src="./media/project/imgs/maria_talking.svg" alt="" />
+				</section>
+
+				<section id="intro">
+					<img class="maria" src="./media/project/imgs/maria_storytelling.svg" alt="" />
+					<div class="intro-text">
+						<h1>Meet the simpleshow interactive test package!</h1>
+						<p>Here you will find quizzes, a drag and drop interaction, and our video player<br />in a basic setup, including the following features:</p>
+
+						<div class="indent">
+							<h3><u>closed captioning</u></h3>
+							<p>subtitles that can be turned on and off via the control bar</p>
+							<h3><u>variable quality settings</u></h3>
+							<p>choose between 360p and 720p video resolution</p>
+						</div>
+						<p>Please use this package to test in your IT environment <br />and let us know if you encounter any problems.</p>
+					</div>
+				</section>
+
+				<section id="v1">
+					<video id="Video_01" class="video-js vjs-16-9 vjs-default-skin vjs-big-play-centered" playsinline controls preload="auto">
+						<source data-src="media/video/00_Intro/video_720.mp4" type="video/mp4" label="720p" res="720" />
+						<source data-src="media/video/00_Intro/video_360.mp4" type="video/mp4" label="360p" res="360" />
+						<track kind="captions" src="media/video/00_Intro/subs.en.vtt" srclang="en" label="English" default />
+					</video>
+				</section>
+
+				<section id="i1">
+					<img class="circle-image" src="media/project/imgs/circle_education.svg" />
+					<h2>Multiple Choice Quiz</h2>
+					<h3>Learning through testing is great!<br />But do you know the benefits?</h3>
+
+					<ul class="si-quiz si-quiz__js">
+						<li id="i1-correct1">
+							<div class="si-quiz-button">
+								<img class="inject-me" src="./media/imgs/navigation/classic/scq.svg" alt="" />
+								<img class="" src="./media/imgs/navigation/classic/check-mark.svg" alt="" />
+							</div>
+							<p>Make learning success measurable.</p>
+						</li>
+						<li id="i1-correct2">
+							<div class="si-quiz-button">
+								<img class="inject-me" src="./media/imgs/navigation/classic/mcq.svg" alt="" />
+								<img class="" src="./media/imgs/navigation/classic/check-mark.svg" alt="" />
+							</div>
+							<p>Query knowledge playfully.</p>
+						</li>
+						<li id="i1-correct3">
+							<div class="si-quiz-button">
+								<img class="inject-me" src="./media/imgs/navigation/classic/mcq.svg" alt="" />
+								<img class="" src="./media/imgs/navigation/classic/check-mark.svg" alt="" />
+							</div>
+							<p>Allow self-examination.</p>
+						</li>
+					</ul>
+				</section>
+
+				<section id="i2">
+					<img class="circle-image" src="media/project/imgs/circle_education.svg" />
+					<h2>Single Choice Quiz</h2>
+					<h3>
+						Using gamification elements is widely accepted as the way to go in eLearning!<br />
+						But why is that?
+					</h3>
+
+					<ul class="si-quiz si-quiz__js">
+						<li id="i2-wrong1">
+							<div class="si-quiz-button">
+								<img class="inject-me" src="./media/imgs/navigation/classic/scq.svg" alt="" />
+								<img class="" src="./media/imgs/navigation/classic/check-mark.svg" alt="" />
+							</div>
+							<p>It helps courses to be built especially easy and fast.</p>
+						</li>
+						<li id="i2-wrong2">
+							<div class="si-quiz-button">
+								<img class="inject-me" src="./media/imgs/navigation/classic/mcq.svg" alt="" />
+								<img class="" src="./media/imgs/navigation/classic/check-mark.svg" alt="" />
+							</div>
+							<p>It decreases knowledge absorption and retention.</p>
+						</li>
+						<li id="i2-correct">
+							<div class="si-quiz-button">
+								<img class="inject-me" src="./media/imgs/navigation/classic/mcq.svg" alt="" />
+								<img class="" src="./media/imgs/navigation/classic/check-mark.svg" alt="" />
+							</div>
+							<p>It keeps the learner engaged and alert.</p>
+						</li>
+					</ul>
+				</section>
+
+				<section id="i3">
+					<img class="whiteboard" src="media/project/imgs/whiteboard.svg" />
+					<h2>Drag and drop</h2>
+					<h3>Learning through variation!</h3>
+
+					<div class="the-text">
+						Putting the <span class="the-blank">&nbsp;</span> at the forefront of our learning approach makes for the perfect transition from theory to practice.
+						<!-- <div id="i3_drag1" class="draggable">teacher</div> -->
+						<!-- <div id="i3_drag1" class="draggable">teacher</div> -->
+					</div>
+					<div id="i3_drag1" class="draggable"><img src="media/project/imgs/teacher-label.svg" alt="" /></div>
+					<!-- <div id="i3_drag2" class="draggable">learner</div> -->
+					<div id="i3_drag2" class="draggable"><img src="media/project/imgs/learner-label.svg" alt="" /></div>
+					<div id="i3_drop" class="droppable"></div>
+				</section>
+
+				<section id="end">
+					<img class="maria" src="./media/project/imgs/maria_jumping.svg" alt="" />
+					<div class="text-block">
+						<h1>Congratulations! You did great!</h1>
+						<h2>You've completed the test package course!</h2>
+						<!-- <p>
+							You answered<b> <span id="correct-answers"></span>/3 </b>questions correct.
+						</p> -->
+						<p>On the video slide, you should have been able to change the video resolution and toggle subtitles on and off.</p>
+
+						<p>
+							If you are using the package inside your LMS,<br />the course should be marked as <b>successful</b> and <b>completed</b>,<br />and the score should have been set to <b><span id="score-percentage">100</span>%</b>.
+						</p>
+
+						<p>Finally, please test the download of the certificate <a href="media/project/pdf/certificate.pdf" target="_blank" rel="noopener noreferrer">here</a>.</p>
+						<h3>Other than that, you should be good to go!<br />Feel free to close the browser window or return to your LMS.</h3>
+					</div>
+					<!-- <img class="si-end-logo" src="./media/imgs/_imgs/logo.svg" alt="" /> -->
+				</section>
+
+				<div id="si-nav-container">
+					<nav id="si-course-nav">
+						<button id="si-home" class="si-nav__js si-nav-style__js" aria-label="Home">
+							&nbsp;
+							<img class="si-img-swap__js inject-me" src="./media/imgs/navigation/classic/home.svg" />
+						</button>
+						<button id="si-menu" class="si-nav__js si-nav-style__js" aria-label="Open Menu">
+							&nbsp;
+							<img class="si-img-swap__js inject-me" src="./media/imgs/navigation/classic/menu.svg" />
+						</button>
+						<button id="si-full" class="si-nav__js si-nav-style__js" aria-label="Fullscreen">
+							&nbsp;
+							<img class="si-img-swap__js inject-me" src="./media/imgs/navigation/classic/fullscreen.svg" />
+						</button>
+					</nav>
+					<nav id="si-slide-nav">
+						<button id="si-back" class="si-nav__js si-nav-style__js" aria-label="Previous Slide">
+							&nbsp;
+							<img class="si-img-swap__js inject-me si-nav-symbol" src="./media/imgs/navigation/classic/left-arrow.svg" />
+						</button>
+						<button id="si-next" class="si-nav__js si-nav-style__js" aria-label="Next Slide">
+							&nbsp;
+							<img class="si-img-swap__js inject-me si-nav-symbol" src="./media/imgs/navigation/classic/right-arrow.svg" />
+						</button>
+						<button id="si-replay" class="si-nav__js si-nav-style__js" aria-label="Replay Course">
+							&nbsp;
+							<img class="si-img-swap__js inject-me si-nav-symbol" src="./media/imgs/navigation/classic/reset-arrow.svg" />
+						</button>
+						<button id="si-exit" class="si-nav__js si-nav-style__js" aria-label="Exit Course">
+							&nbsp;
+							<img class="si-img-swap__js inject-me si-nav-symbol" src="./media/imgs/navigation/classic/exit-symbol.svg" />
+						</button>
+					</nav>
+					<div id="si-lower-nav">
+						<div id="si-progress" class="si-nav__js si-nav-style__js">
+							<div id="si-progress-meter" data-percent="0" data-name="" data-offset="0"></div>
+						</div>
+						<div id="si-clock" class="si-nav__js si-nav-style__js">
+							<img class="si-img-swap__js inject-me si-nav-symbol" src="./media/imgs/navigation/classic/clock.svg" alt="clock" />
+							<div>10 min</div>
+						</div>
+					</div>
+					<div id="si-logo" class="si-nav__js">
+						<img src="./media/imgs/_imgs/logo.svg" alt="company logo" />
+					</div>
+					<div id="si-buttons">
+						<button id="si-start" class="si-nav__js si-nav-style__js">
+							<img class="si-classic-rect-image" src="./media/imgs/navigation/classic/rect-small-shadow.svg" alt="button" />
+							<div>Start</div>
+							<img class="inject-me si-img-swap__js si-button-arrow" src="./media/imgs/navigation/classic/right-arrow.svg" alt="right arrow" />
+						</button>
+						<button id="si-submit" class="si-nav__js si-nav-style__js si-submit-style">
+							<img class="si-classic-rect-image" src="./media/imgs/navigation/classic/rect-small-shadow.svg" alt="button" />
+							<div>Submit</div>
+							<img class="inject-me si-img-swap__js si-button-arrow" src="./media/imgs/navigation/classic/right-arrow.svg" alt="right arrow" />
+						</button>
+						<button id="si-custom-submit" class="si-nav__js si-nav-style__js si-submit-style">
+							<img class="si-classic-rect-image" src="./media/imgs/navigation/classic/rect-small-shadow.svg" alt="button" />
+							<div>Submit</div>
+							<img class="inject-me si-img-swap__js si-button-arrow" src="./media/imgs/navigation/classic/right-arrow.svg" alt="right arrow" />
+						</button>
+						<button id="si-reset" class="si-nav__js si-nav-style__js">
+							<img class="si-classic-rect-image" src="./media/imgs/navigation/classic/rect-small-shadow.svg" alt="button" />
+							<div>Reset</div>
+							<img class="inject-me si-img-swap__js si-button-arrow" src="./media/imgs/navigation/classic/reset-arrow.svg" alt="reset arrow" />
+						</button>
+					</div>
+					<div id="si-click-icon" class="si-nav__js si-click-custom">
+						<img class="si-img-swap__js si-nav-style__js inject-me" src="./media/imgs/navigation/classic/click-icon.svg" alt="click-icon" />
+					</div>
+				</div>
+				<div id="si-side-menu-container">
+					<div id="si-side-menu" class="">
+						<button class="si-menu-closer">
+							<img class="si-img-swap__js inject-me" src=" ./media/imgs/navigation/classic/close-cross.svg" alt="" />
+						</button>
+						<div class="si-menu-header">
+							<p>Sample<br />Header</p>
+						</div>
+						<div class="si-menu-section">
+							<p>SECTIONS</p>
+						</div>
+						<div class="si-menu-navigation">
+							<button class="si-nav-style__js">
+								<div class="si-menu-checkbox">
+									<img class="si-img-swap__js inject-me si-menu-box-style" src="./media/imgs/navigation/classic/mcq.svg" alt="" />
+									<img class="si-img-swap__js inject-me si-menu-check-style si-menu-checks__js" src="./media/imgs/navigation/classic/check-mark.svg" alt="" />
+								</div>
+								<div class="si-menu-chapters">Intro Video</div>
+							</button>
+							<button class="si-nav-style__js">
+								<div class="si-menu-checkbox">
+									<img class="si-img-swap__js inject-me si-menu-box-style" src="./media/imgs/navigation/classic/mcq.svg" alt="" />
+									<img class="si-img-swap__js inject-me si-menu-check-style si-menu-checks__js" src="./media/imgs/navigation/classic/check-mark.svg" alt="" />
+								</div>
+								<div class="si-menu-chapters">Interaction 1</div>
+							</button>
+							<button class="si-nav-style__js">
+								<div class="si-menu-checkbox">
+									<img class="si-img-swap__js inject-me si-menu-box-style" src="./media/imgs/navigation/classic/mcq.svg" alt="" />
+									<img class="si-img-swap__js inject-me si-menu-check-style si-menu-checks__js" src="./media/imgs/navigation/classic/check-mark.svg" alt="" />
+								</div>
+								<div class="si-menu-chapters">Interaction 2</div>
+							</button>
+							<button class="si-nav-style__js">
+								<div class="si-menu-checkbox">
+									<img class="si-img-swap__js inject-me si-menu-box-style" src="./media/imgs/navigation/classic/mcq.svg" alt="" />
+									<img class="si-img-swap__js inject-me si-menu-check-style si-menu-checks__js" src="./media/imgs/navigation/classic/check-mark.svg" alt="" />
+								</div>
+								<div class="si-menu-chapters">Interaction3</div>
+							</button>
+						</div>
+					</div>
+				</div>
+				<div class="si-modal-container si-modal-container__js">
+					<div id="i1-positive" class="si-modal si-modal__js si-feedback-positive">
+						<div class="si-modal-content-container">
+							<p><b>Correct!</b></p>
+							<p>Learning through testing makes learning success measurable, allows for self-examination, and queries knowledge playfully!</p>
+						</div>
+					</div>
+					<div id="i1-negative" class="si-modal si-modal__js si-feedback-negative">
+						<div class="si-modal-content-container">
+							<p><b>That wasn't quite right!</b></p>
+							<p>There are even more reasons!</p>
+						</div>
+					</div>
+					<div id="i1-negative-final" class="si-modal si-modal__js si-feedback-negative-final">
+						<div class="si-modal-content-container">
+							<p><b>Sorry again!</b></p>
+							<p>The correct answer is: <br />Learning through testing makes learning success measurable, allows for self-examination, and queries knowledge playfully!</p>
+						</div>
+					</div>
+					<div id="i2-positive" class="si-modal si-modal__js si-feedback-positive">
+						<div class="si-modal-content-container">
+							<p><b>Correct!</b></p>
+							<p>Keeping the learner engaged is essential for successful training.</p>
+						</div>
+					</div>
+					<div id="i2-negative" class="si-modal si-modal__js si-feedback-negative">
+						<div class="si-modal-content-container">
+							<p><b>Sorry!</b></p>
+							<p><b>Hint:</b> Think about what's essential to successful learning.</p>
+						</div>
+					</div>
+					<div id="i2-negative-final" class="si-modal si-modal__js si-feedback-negative-final">
+						<div class="si-modal-content-container">
+							<p><b>That wasn't quite right!</b></p>
+							<p>Keeping the learner engaged is essential for successful training!</p>
+						</div>
+					</div>
+					<div id="i3-positive" class="si-modal si-modal__js si-feedback-positive">
+						<div class="si-modal-content-container">
+							<p><b>Correct!</b></p>
+							<p>The learner should always be the number one priority when designing eLearning courses.</p>
+						</div>
+					</div>
+					<div id="i3-negative" class="si-modal si-modal__js si-feedback-negative">
+						<div class="si-modal-content-container">
+							<p><b>That wasn't quite right!</b></p>
+							<p><b>Hint:</b> The teacher is not the priority.</p>
+						</div>
+					</div>
+					<div id="i3-negative-final" class="si-modal si-modal__js si-feedback-negative-final">
+						<div class="si-modal-content-container">
+							<p><b>Sorry again!</b></p>
+							<p>The learner should always be the number one priority when designing eLearning courses.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--slides-->
+		</div>
+		<!--revealjs-->
+
+		<script>
+			var globalVar = {
+				homeSlide: 1, //1=first slide
+				devMode: false,
+				scormSettings: {
+					useScorm: true,
+					standard: 'scorm', // if standard is set to "aicc", the AICC API is used in setScormCompletion(), every other value will be ignored.
+					bookmarking: {
+						useBookmarking: true,
+						name: 'curChapter'
+					},
+					minScore: '0',
+					maxScore: '100'
+				},
+				video: {
+					progressControl: true // Set it to false to globally disable seeking for all videos. Setting the 'videoSeeking' attribute in data.js will overwrite this.
+				},
+				fontSizeFactor: 45,
+				randomizeSlides: {
+					useRandomize: false,
+					slides: {
+						yourKEYvalue: [4, 8, 9] // Slidenumbers 4,5,6,7,8 gets shuffled and return to 9 after going through all of them
+					}
+				},
+				randomizedArray: [], // don't edit
+				dndAnswers: {}, // don't edit
+				sendData: '', // don't edit
+				shuffledSlides: {}, // don't edit
+				videoSeen: {},
+				fadeNavigation: true, // fades nav controls on videos
+				buttonType: 'clean' // classic, clean, or custom
+			};
+		</script>
+
+		<script src="js/vendor.min.js"></script>
+
+		<!-- <script src="js/post-message-api.js"></script> -->
+
+		<script nomodule src="js/polyfills.min.js"></script>
+		<script src="js/interactive.min.js"></script>
+
+		<script>
+			Reveal.initialize({
+				dependencies: [
+					{
+						src: 'js/_js/apis/classList.js',
+						condition: function () {
+							return !document.body.classList;
+						}
+					}
+				],
+				controls: false,
+				progress: false,
+				history: true,
+				center: false,
+				autoPlayMedia: false,
+				width: '100%',
+				height: '100%',
+				keyboard: false,
+				transitionSpeed: 'fast',
+				touch: false,
+				margin: 0.01,
+				maxScale: 1,
+				minScale: 1,
+				viewDistance: 2,
+				transition: 'none' // none/fade/slide/convex/concave/zoom
+			});
+		</script>
+	</body>
+</html>

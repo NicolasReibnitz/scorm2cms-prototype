@@ -1,0 +1,15 @@
+body.parent {
+	display: flex;
+	overflow: hidden;
+	height: auto;
+	height: 100vh;
+	min-height: 100%;
+	flex-direction: column;
+	padding-bottom: 1.5rem;
+	color: #1260aa;
+
+	iframe {
+		margin-bottom: 1rem;
+		aspect-ratio: 16/9.5;
+	}
+}

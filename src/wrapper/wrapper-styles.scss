@@ -1,0 +1,12 @@
+body.wrapper {
+	color: rgb(0 192 204);
+
+	h2 {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	iframe {
+		aspect-ratio: 16/9.3;
+	}
+}

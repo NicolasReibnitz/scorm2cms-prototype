@@ -1,0 +1,148 @@
+<?xml version="1.0" ?>
+<manifest identifier="simpleshowSCORM" version="1"
+				xmlns="http://www.imsproject.org/xsd/imscp_rootv1p1p2"
+				xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_rootv1p2"
+				xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+				xsi:schemaLocation="http://www.imsproject.org/xsd/imscp_rootv1p1p2 schema/imscp_rootv1p1p2.xsd
+									http://www.imsglobal.org/xsd/imsmd_rootv1p2p1 schema/imsmd_rootv1p2p1.xsd
+									http://www.adlnet.org/xsd/adlcp_rootv1p2 schema/adlcp_rootv1p2.xsd">
+	<metadata>
+		<schema>ADL SCORM</schema>
+		<schemaversion>1.2</schemaversion>
+		<!-- Added metadata extension to change the way the course gets launched in SCORM Cloud. -->
+		<!-- See here: https://support.scorm.com/hc/en-us/articles/206168646-Modifying-Package-Properties-Using-Manifest-Extensions -->
+		<adlcp:location>schema/course_metadata.xml</adlcp:location>
+	</metadata>
+	<organizations default="simpleshow">
+		<organization identifier="simpleshow">
+			<title>simpleshow | interactive test package</title>
+			<item identifier="i1" identifierref="r1" isvisible="true">
+				<title>simpleshow | interactive test package</title>
+			</item>
+		</organization>
+	</organizations>
+	<resources>
+		<resource identifier="r1" type="webcontent" adlcp:scormtype="sco" href="index.html">
+			<file href="./css/font/PatrickHand-Regular.ttf" />
+			<file href="./css/font/simpleshow.ttf" />
+			<file href="./css/font/VideoJS.eot" />
+			<file href="./css/font/VideoJS.svg" />
+			<file href="./css/font/VideoJS.ttf" />
+			<file href="./css/font/VideoJS.woff" />
+			<file href="./css/font/VideoJSInteractive.eot" />
+			<file href="./css/font/VideoJSInteractive.svg" />
+			<file href="./css/font/VideoJSInteractive.ttf" />
+			<file href="./css/font/VideoJSInteractive.woff" />
+			<file href="./css/font/YanoneKaffeesatz-Bold.ttf" />
+			<file href="./css/font/YanoneKaffeesatz-Light.ttf" />
+			<file href="./css/font/YanoneKaffeesatz-Regular.ttf" />
+			<file href="./css/font/YanoneKaffeesatz-Thin.ttf" />
+			<file href="./css/style.min.css" />
+			<file href="./css/style.min.css.map" />
+			<file href="./favicon.ico" />
+			<file href="./index.html" />
+			<file href="./js/interactive.js" />
+			<file href="./js/interactive.min.js" />
+			<file href="./js/polyfills.js" />
+			<file href="./js/polyfills.min.js" />
+			<file href="./js/polyfills.min.js.map" />
+			<file href="./js/vendor.min.js" />
+			<file href="./js/vendor.min.js.map" />
+			<file href="./media/audio/sounds/mouse_click.mp3" />
+			<file href="./media/audio/sounds/negative.mp3" />
+			<file href="./media/audio/sounds/nothing.mp3" />
+			<file href="./media/audio/sounds/positive.mp3" />
+			<file href="./media/audio/vo/nothing.mp3" />
+			<file href="./media/fonts/PatrickHand-Regular.ttf" />
+			<file href="./media/fonts/simpleshow.ttf" />
+			<file href="./media/fonts/YanoneKaffeesatz-Bold.ttf" />
+			<file href="./media/fonts/YanoneKaffeesatz-Light.ttf" />
+			<file href="./media/fonts/YanoneKaffeesatz-Regular.ttf" />
+			<file href="./media/fonts/YanoneKaffeesatz-Thin.ttf" />
+			<file href="./media/imgs/_imgs/clock.svg" />
+			<file href="./media/imgs/_imgs/grid.svg" />
+			<file href="./media/imgs/_imgs/grid2.svg" />
+			<file href="./media/imgs/_imgs/logo.svg" />
+			<file href="./media/imgs/_imgs/preloader.svg" />
+			<file href="./media/imgs/_imgs/rewind-hover.svg" />
+			<file href="./media/imgs/_imgs/rewind.svg" />
+			<file href="./media/imgs/background/banniere-abstraite-motif-pointille-orange-noir.png" />
+			<file href="./media/imgs/background/fondo-tecnologia-abstracto-oscuro.png" />
+			<file href="./media/imgs/background/none.svg" />
+			<file href="./media/imgs/background/paper.png" />
+			<file href="./media/imgs/background/trees.png" />
+			<file href="./media/imgs/background/vignette.png" />
+			<file href="./media/imgs/background/white-abstract.png" />
+			<file href="./media/imgs/navigation/classic/check-mark.svg" />
+			<file href="./media/imgs/navigation/classic/click-icon.svg" />
+			<file href="./media/imgs/navigation/classic/clock.svg" />
+			<file href="./media/imgs/navigation/classic/close-cross.svg" />
+			<file href="./media/imgs/navigation/classic/download.svg" />
+			<file href="./media/imgs/navigation/classic/exit-symbol.svg" />
+			<file href="./media/imgs/navigation/classic/fullscreen.svg" />
+			<file href="./media/imgs/navigation/classic/home.svg" />
+			<file href="./media/imgs/navigation/classic/info-letter.svg" />
+			<file href="./media/imgs/navigation/classic/left-arrow.svg" />
+			<file href="./media/imgs/navigation/classic/mcq.svg" />
+			<file href="./media/imgs/navigation/classic/menu.svg" />
+			<file href="./media/imgs/navigation/classic/plus-sign.svg" />
+			<file href="./media/imgs/navigation/classic/question-mark.svg" />
+			<file href="./media/imgs/navigation/classic/rect-small-shadow.svg" />
+			<file href="./media/imgs/navigation/classic/reset-arrow.svg" />
+			<file href="./media/imgs/navigation/classic/right-arrow.svg" />
+			<file href="./media/imgs/navigation/classic/scq.svg" />
+			<file href="./media/imgs/navigation/clean/check-mark.svg" />
+			<file href="./media/imgs/navigation/clean/click-icon.svg" />
+			<file href="./media/imgs/navigation/clean/clock.svg" />
+			<file href="./media/imgs/navigation/clean/close-cross.svg" />
+			<file href="./media/imgs/navigation/clean/download.svg" />
+			<file href="./media/imgs/navigation/clean/exit-symbol.svg" />
+			<file href="./media/imgs/navigation/clean/fullscreen.svg" />
+			<file href="./media/imgs/navigation/clean/home.svg" />
+			<file href="./media/imgs/navigation/clean/info-letter.svg" />
+			<file href="./media/imgs/navigation/clean/left-arrow.svg" />
+			<file href="./media/imgs/navigation/clean/mcq.svg" />
+			<file href="./media/imgs/navigation/clean/menu.svg" />
+			<file href="./media/imgs/navigation/clean/plus-sign.svg" />
+			<file href="./media/imgs/navigation/clean/question-mark.svg" />
+			<file href="./media/imgs/navigation/clean/reset-arrow.svg" />
+			<file href="./media/imgs/navigation/clean/right-arrow.svg" />
+			<file href="./media/imgs/navigation/clean/scq.svg" />
+			<file href="./media/imgs/navigation/custom/check-mark.svg" />
+			<file href="./media/imgs/navigation/custom/click-icon.svg" />
+			<file href="./media/imgs/navigation/custom/clock.svg" />
+			<file href="./media/imgs/navigation/custom/close-cross.svg" />
+			<file href="./media/imgs/navigation/custom/download.svg" />
+			<file href="./media/imgs/navigation/custom/exit-symbol.svg" />
+			<file href="./media/imgs/navigation/custom/fullscreen.svg" />
+			<file href="./media/imgs/navigation/custom/home.svg" />
+			<file href="./media/imgs/navigation/custom/info-letter.svg" />
+			<file href="./media/imgs/navigation/custom/left-arrow.svg" />
+			<file href="./media/imgs/navigation/custom/mcq.svg" />
+			<file href="./media/imgs/navigation/custom/menu.svg" />
+			<file href="./media/imgs/navigation/custom/plus-sign.svg" />
+			<file href="./media/imgs/navigation/custom/question-mark.svg" />
+			<file href="./media/imgs/navigation/custom/reset-arrow.svg" />
+			<file href="./media/imgs/navigation/custom/right-arrow.svg" />
+			<file href="./media/imgs/navigation/custom/scq.svg" />
+			<file href="./media/project/imgs/business_man_a-ha.svg" />
+			<file href="./media/project/imgs/circle_education.svg" />
+			<file href="./media/project/imgs/feedback-negative-final.svg" />
+			<file href="./media/project/imgs/feedback-negative.svg" />
+			<file href="./media/project/imgs/feedback-positive.svg" />
+			<file href="./media/project/imgs/grid.svg" />
+			<file href="./media/project/imgs/learner-label.svg" />
+			<file href="./media/project/imgs/maria_jumping.svg" />
+			<file href="./media/project/imgs/maria_storytelling.svg" />
+			<file href="./media/project/imgs/maria_talking.svg" />
+			<file href="./media/project/imgs/Mr_Weber_explain.svg" />
+			<file href="./media/project/imgs/teacher-label.svg" />
+			<file href="./media/project/imgs/whiteboard.svg" />
+			<file href="./media/project/pdf/certificate.pdf" />
+			<file href="./media/video/00_Intro/poster.jpg" />
+			<file href="./media/video/00_Intro/subs.en.vtt" />
+			<file href="./media/video/00_Intro/video_360.mp4" />
+			<file href="./media/video/00_Intro/video_720.mp4" />
+		</resource>
+	</resources>
+</manifest>
