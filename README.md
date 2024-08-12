@@ -1,22 +1,22 @@
 # SCORM2CMS Prototype
 
-
-
 ## Usage
 
 1. **Clone the Repository**: Start by cloning this repository to your local machine.
 
 ```bash
-git clone https://github.com/nititech/php-vite-starter.git
+git clone git@github.com:NicolasReibnitz/scorm2cms-prototype.git
 ```
 
 2. **Install Dependencies**: Navigate into the project directory and install the necessary dependencies using npm or yarn.
 
 ```bash
-cd php-vite-starter
 npm install
-npm run php-install
 ```
+
+## Configuration
+
+You will have to add your server URL to the `src/.env` file.
 
 ## Development
 
@@ -26,97 +26,7 @@ npm run php-install
 npm run dev
 ```
 
-Now you can access your application. Once the server is running, you can access your application by navigating to http://localhost:3000/pages in your web browser.
-
-## Project Structure
-
-##### /bin
-
-```
-├── bin
-│   ├── composer.phar
-│   ├── **/*
-```
-
--   This folder is supposed to hold binaries that are needed for project compilations and such
--   Currently holds only `composer.phar` for the `php-install command`
-
-##### /pages
-
-```
-├── pages
-│   ├── **/*.php
-```
-
--   File based routing
--   These files will be publicly accessible by name without `.php` file extension
--   The `.php` files will be transpiled using Vite and the `vite-plugin-php` plugin
-
-##### /partials
-
-```
-├── partials
-│   ├── **/*.php
-```
-
--   Includable files (like components)
--   Not directly publicly accessible
--   These `.php` files will be transpiled using Vite and the `vite-plugin-php` plugin
-
-##### /public
-
-```
-├── public
-│   ├── **/*
-```
-
--   Publicly accessible files should be placed here
--   Can be accessed by `/example-file.extension` in image, script, style, ... tags
--   Files will not be transpiled
-
-##### /raw
-
-```
-├── raw
-│   ├── .htaccess
-│   ├── **/*
-```
-
--   These files will be copied into the root of your build
--   Usually used for configurations, routers and so on (like the included `.htaccess`)
-
-##### /src
-
-```
-├── src
-│   ├── scripts
-│   │   ├── **/*
-│   ├── styles
-│   │   ├── **/*
-```
-
--   This folder should be used for files that need be handled by Vite
--   Files can be accessed for example by `/src/styles/example-style.scss` or `/src/scripts/some-script.ts`
-
-##### /system
-
-```
-├── system
-│   ├── **/*
-```
-
--   `.php` files in this folder will not be transpiled
--   Usually used for autoloaders, database connections etc.
-
-##### /vendor
-
-```
-├── vendor
-│   ├── **/*
-```
-
--   Vendor files installed by Composer
--   `.php` Files will not be transpiled
+Once the server is running, you can access your application by navigating to http://localhost:5173/parent/index.html in your web browser.
 
 ## Production Build
 
@@ -126,80 +36,8 @@ To generate a production build of your project, use:
 npm run build
 ```
 
-#### Output
+To preview the build, use:
 
-All files will be generated and copied into the `/dist` folder.
-
+```bash
+npm run preview
 ```
-├── dist
-│   ├── pages (Publicly accessible by name without .php file extension)
-│   │   ├── **/* (Transpiled PHP files from your ./pages folder)
-│   │
-│   ├── partials
-│   │   ├── **/* (Transpiled PHP files from your ./partials folder)
-│   │
-│   ├── public (Publicly accessible files, usually assets)
-│   │   ├── **/* (Files copied from the ./src/public folder)
-│   │
-│   ├── system
-│   │   ├── **/* (Files copied from the ./system folder)
-│   │
-│   ├── vendor
-│   │   ├── **/* (Files copied from the ./vendor folder, usually Composer packages)
-│   │
-│   ├── .htaccess
-│   ├── **/* (Files copied from the ./raw folder)
-```
-
-## Configuration
-
-This starter repository comes with default configurations for various tools. However, you can customize these configurations according to your project requirements. Key configuration files include:
-
--   **tsconfig.json**: TypeScript configuration file. Modify this file to adjust TypeScript compiler options.
--   **.prettierrc**: Prettier configuration file for code formatting. Modify this file to customize code formatting rules.
--   **vite.config.ts**: Contains configuration settings for Vite, such as plugins, build options, and server settings.
--   **tailwind.config.ts**: Configuration file for Tailwind CSS. Customize this file to adjust Tailwind CSS settings.
--   **postcss.config.cjs**: Configuration for PostCSS, which is used for processing CSS. Modify this file to include additional PostCSS plugins or settings.
-
-## License
-
-This project is licensed under the MIT license, see LICENSE.
-
-## Contributing
-
-Contributions are welcome! If you have any suggestions, improvements, or bug fixes, please feel free to open an issue or submit a pull request.
-
-<table>
-	<tr>
-		<th>
-			via Ko-Fi
-		</th>
-		<th>
-			Buy me a coffee
-		</th>
-		<th>
-			via PayPal
-		</th>
-	</tr>
-	<tr>
-		<td>
-			<a href="https://ko-fi.com/Y8Y2ALMG" target="_blank">
-				<img src="https://ko-fi.com/img/githubbutton_sm.svg" alt="ko-fi" width="174">
-			</a>
-		</td>
-		<td>
-			<a href="https://www.buymeacoffee.com/donnikitos" target="_blank">
-				<img src="https://nititech.de/donate-buymeacoffee.png" alt="Buy Me A Coffee" width="174">
-			</a>
-		</td>
-		<td>
-			<a href="https://www.paypal.com/donate/?hosted_button_id=EPXZPRTR7JHDW" target="_blank">
-				<img src="https://nititech.de/donate-paypal.png" alt="PayPal" width="174">
-			</a>
-		</td>
-	</tr>
-</table>
-
-## Acknowledgments
-
-Special thanks to the developers of Vite, Tailwind CSS, and other tools used in this starter repository for their fantastic work.
