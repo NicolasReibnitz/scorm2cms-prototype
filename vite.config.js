@@ -31,12 +31,16 @@ export default defineConfig({
 		hmr: {
 			host: 'localhost',
 			protocol: 'ws'
+		},
+		watch: {
+			ignored: ['**/server/**']
 		}
 	},
 	resolve: {
 		alias: {
 			'@global': resolve(__dirname, 'src/_global'),
 			'@data': resolve(__dirname, 'src/_data'),
+			'@server': resolve(__dirname, 'server'),
 			'@parent': resolve(__dirname, 'src/parent'),
 			'@wrapper': resolve(__dirname, 'src/wrapper'),
 			'@': resolve(__dirname, 'src')

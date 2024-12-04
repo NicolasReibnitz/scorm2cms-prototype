@@ -1,22 +1,20 @@
 // Define the structure for all modals
-interface SiteSettings {
+interface LoggerSettings {
 	siteName: string;
 	siteColor: string;
 	logLevel: number;
 }
 
 interface WrapperBridgeMessage {
-	type?: string;
-	time?: string;
-	methodName?: string;
-	requestId?: string;
-	token?: string;
+	args?: string[];
+	CMIElement?: string;
 	methodName?: string;
 	origin?: string;
-	args?: string[];
+	requestId?: string;
+	time?: string;
+	token?: string;
+	type?: string;
 	value?: string;
-	CMIElement?: string;
-	CMIElementValue?: string;
 }
 
 interface HandleScormInteraction {

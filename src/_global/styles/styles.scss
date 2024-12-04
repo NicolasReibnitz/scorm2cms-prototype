@@ -9,10 +9,26 @@ body {
 }
 
 body {
-	width: 90%;
-	max-width: 800px;
 	margin: 0 auto;
 	font-family: Montserrat, sans-serif;
+
+	.dev-only {
+		display: none !important;
+	}
+
+	&.dev-mode {
+		width: 90%;
+		max-width: 800px;
+
+		.dev-only {
+			display: flex !important;
+		}
+
+		iframe {
+			border-radius: 1rem;
+			outline: dashed 2px;
+		}
+	}
 }
 
 h1,
@@ -32,12 +48,11 @@ h2 {
 }
 
 iframe {
+	display: block;
 	overflow: hidden;
 	width: 100%;
 	height: auto;
-	border-radius: 1rem;
 	aspect-ratio: 16/9;
-	outline: dashed 2px;
 }
 
 button.btn-standard {
@@ -61,8 +76,9 @@ button.btn-standard {
 #scorm-log {
 	display: none;
 	overflow: hidden scroll;
+	width: 100%;
 	height: 100%;
-	margin-bottom: 1rem;
+	margin: 0 auto 1rem;
 	font-size: 0.6rem;
 	outline: solid 0.5px;
 

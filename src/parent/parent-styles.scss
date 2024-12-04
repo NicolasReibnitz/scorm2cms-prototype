@@ -5,11 +5,17 @@ body.parent {
 	height: 100vh;
 	min-height: 100%;
 	flex-direction: column;
-	padding-bottom: 1.5rem;
+	padding: 0.5rem;
 	color: #1260aa;
 
 	iframe {
-		margin-bottom: 1rem;
-		aspect-ratio: 16/9.5;
+		aspect-ratio: 16/9;
+	}
+
+	&.dev-mode {
+		iframe {
+			margin-bottom: 1rem;
+			aspect-ratio: 16/9.5;
+		}
 	}
 }

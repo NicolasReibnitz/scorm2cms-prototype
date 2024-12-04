@@ -1,169 +1,724 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en-US">
 	<head>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>simpleshow interactive | framework test package</title>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+		<title>Colgate | Customer Development Module 1</title>
 
-		<!-- <link rel="stylesheet" href="https://use.typekit.net/bkj5fss.css" /> -->
+		<!-- uncomment below for Eli Lilly DIN font -->
+		<!-- <link rel="stylesheet" href="https://use.typekit.net/qzi6pbf.css" /> -->
 
-		<link rel="stylesheet" href="css/style.min.css" />
+		<!-- uncomment the 3 lines below for JP and ZH translation (Noto Sans font) and use $si-noto in ./css/00-abstract/00_variables.scss -->
+		<!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@100;300;400;500;700;900&display=swap" rel="stylesheet"> -->
+
+		<!-- uncomment the 2 lines below for HE translation (Rubik font) and use $si-rubik in ./css/00-abstract/00_variables.scss -->
+		<!-- <link rel="preconnect" href="https://fonts.gstatic.com" />
+		<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" /> -->
+
+		<link rel="stylesheet" href="css/style.min.css">
 	</head>
-	<body id="interactive" class="si-bg-slides" ontouchstart="">
+	<body id="interactive" class="si-bg-full si-bg-slides" ontouchstart="">
 		<div class="reveal">
-			<h3 class="server-name">interactive iframe</h3>
 			<div class="slides shadow">
 				<!------- Preloader --------->
 				<div id="Preloader">
-					<div class="preloader-wrapper">
-						<img class="test-1" src="media/imgs/_imgs/preloader.svg" />
+					<div class="preloader-wrapper si-logo-swap__js">
+						<img class="test-1" src="media/imgs/the-logo.svg" />
 					</div>
-					<p id="preloader_text_1">Loading ...</p>
-					<p id="preloader_text_2">Please click anywhere to start.</p>
+					<p id="preloader_text_1">Cargando ...</p>
+					<p id="preloader_text_2">Haga clic en cualquier lugar para comenzar.</p>
 				</div>
-
 				<!------- Guidelines --------->
-				<!-- <img id="guidelines-2" class="si-guidelines" src="./media/imgs/_imgs/grid2.svg" alt="" /> -->
-				<div id="guidelines">
-					<div class="guidelines guidelines-1"></div>
-					<div class="guidelines guidelines-2"></div>
-					<!-- <img class="si-guidelines" src="./media/imgs/_imgs/grid.svg" alt="" /> -->
-				</div>
+				<img id="guidelines" class="si-guidelines" src="./media/imgs/_imgs/grid.svg" alt="" />
+				<!-- Navigation Overlay and Side Menu -->
 
+				<!-- ##################################### Begin Main Slides ########################################## -->
 				<section id="start">
-					<header>
-						<img data-src="./media/imgs/_imgs/logo.svg" alt="" />
-						<h1>Welcome to the simpleshow framework!</h1>
-						<p>This test package will help us identify potential<br />incompatibilities with your IT infrastructure<br />to ensure they are addressed or fixed<br />long before your project is<br />scheduled to launch!</p>
-						<button id="btn-start" class="si-btn-clean">Let's go!</button>
-					</header>
-					<img class="maria-start" data-src="./media/project/imgs/maria_talking.svg" alt="" />
-				</section>
+					<img class="bg" data-src="./media/imgs/interactions/startend/start.svg" alt="" />
 
-				<section id="intro">
-					<img class="maria" src="./media/project/imgs/maria_storytelling.svg" alt="" />
-					<div class="intro-text">
-						<h1>Meet the simpleshow interactive test package!</h1>
-						<p>Here you will find quizzes, a drag and drop interaction, and our video player<br />in a basic setup, including the following features:</p>
+					<h1>Te damos la bienvenida a los Fundamentos del Desarrollo de Clientes.</h1>
+					<h2>Este es el Módulo 1: Introducción al Desarrollo de Clientes. Repasemos tu recorrido de aprendizaje.</h2>
 
-						<div class="indent">
-							<h3><u>closed captioning</u></h3>
-							<p>subtitles that can be turned on and off via the control bar</p>
-							<h3><u>variable quality settings</u></h3>
-							<p>choose between 360p and 720p video resolution</p>
-						</div>
-						<p>Please use this package to test in your IT environment <br />and let us know if you encounter any problems.</p>
+					<!-- INSERT START -->
+					<div class="caption caption-1">Introducción al<br/>desarrollo de clientes</div>
+					<div class="caption caption-2">Comprensión de tu función,<br/>tu cliente y tu ambiente<br/>de venta minorista</div>
+					<div class="caption caption-3">Planificación y preparación<br/>de visitas de ventas</div>
+					<div class="caption caption-4">Obtener confianza e<br/>información para identificar<br/>las necesidades de<br/>los clientes</div>
+					<div class="caption caption-5">Formulación de soluciones</div>
+					<div class="caption caption-6">Negociar resultados<br/>y dar seguimiento</div>
+					<!-- INSERT END -->
+
+					<div id="hotspot_hover-hs1" class="course1 hotspot_hover">
+						<img src="./media/imgs/interactions/startend/start_bubble.svg" alt="" id="bubble_img" />
+						<p>Este curso aborda la gestión y el desarrollo de clientes, y la importancia de equilibrar ambos.</p>
+					</div>
+					<div id="hotspot_hover-hs2" class="course2 hotspot_hover">
+						<img src="./media/imgs/interactions/startend/start_bubble2.svg" alt="" id="bubble_img" />
+						<p>Este curso aborda la comprensión de las responsabilidades de TM, de los perfiles del cliente y del canal de mascotas y veterinarios que conforman el ambiente de venta minorista.</p>
+					</div>
+					<div id="hotspot_hover-hs3" class="course3 hotspot_hover">
+						<img src="./media/imgs/interactions/startend/start_bubble3.svg" alt="" id="bubble_img" />
+						<p>Este curso aborda cómo el análisis, la planificación y la ejecución pueden ayudarnos a alcanzar nuestras metas, como parte del modelo APE.</p>
+					</div>
+					<div id="hotspot_hover-hs4" class="course4 hotspot_hover">
+						<img src="./media/imgs/interactions/startend/start_bubble4.svg" alt="" id="bubble_img" />
+						<p>Este curso aborda la importancia de adquirir confianza e ideas de los responsables de la toma de decisiones clave, al mismo tiempo que se identifican sus necesidades por medio de cuestionamientos y de escucha activa.</p>
+					</div>
+					<div id="hotspot_hover-hs5" class="course5 hotspot_hover">
+						<img src="./media/imgs/interactions/startend/start_bubble5.svg" alt="" id="bubble_img" />
+						<p>Este curso aborda la diferencia y la relación entre las características y los beneficios, además de la comprensión de las necesidades del comprador para formular soluciones.</p>
+					</div>
+					<div id="hotspot_hover-hs6" class="course6 hotspot_hover">
+						<img src="./media/imgs/interactions/startend/start_bubble6.svg" alt="" id="bubble_img" />
+						<p>Este curso aborda el manejo de objeciones, las formas de influencia que pueden afectar la respuesta de un cliente, y cómo adquirir compromiso y dar seguimiento posterior.</p>
 					</div>
 				</section>
-
 				<section id="v1">
-					<video id="Video_01" class="video-js vjs-16-9 vjs-default-skin vjs-big-play-centered" playsinline controls preload="auto">
-						<source data-src="media/video/00_Intro/video_720.mp4" type="video/mp4" label="720p" res="720" />
-						<source data-src="media/video/00_Intro/video_360.mp4" type="video/mp4" label="360p" res="360" />
-						<track kind="captions" src="media/video/00_Intro/subs.en.vtt" srclang="en" label="English" default />
+					<video id="Video_01" class="video-js vjs-16-9 vjs-default-skin vjs-big-play-centered" playsinline controls preload="auto" crossorigin="anonymous">
+						<source data-src="./media/video/v1.mp4" type="video/mp4" label="1080p" res="1080" />
+						<track kind="captions" src="./media/video/subs1.vtt" srclang="en" label="Spanish" default />
 					</video>
 				</section>
+				<section id="menu">
+					<img class="bg" src="./media/imgs/interactions/menu/menu-background.svg" alt="" />
+					<img class="img1" data-src="./media/imgs/interactions/menu/Management.svg" alt="" />
+					<img class="img2" data-src="./media/imgs/interactions/menu/Development.svg" alt="" />
+					<img class="img3" data-src="./media/imgs/interactions/menu/Balance.svg" alt="" />
 
-				<section id="i1">
-					<img class="circle-image" src="media/project/imgs/circle_education.svg" />
-					<h2>Multiple Choice Quiz</h2>
-					<h3>Learning through testing is great!<br />But do you know the benefits?</h3>
+					<!-- INSERT START -->
+					<h2>Fundamentos del Desarrollo de Clientes</h2>
+					<h3>Módulo 1: Introducción al desarrollo de clientes</h3>
 
-					<ul class="si-quiz si-quiz__js">
-						<li id="i1-correct1">
-							<div class="si-quiz-button">
-								<img class="inject-me" src="./media/imgs/navigation/classic/scq.svg" alt="" />
-								<img class="" src="./media/imgs/navigation/classic/check-mark.svg" alt="" />
-							</div>
-							<p>Make learning success measurable.</p>
-						</li>
-						<li id="i1-correct2">
-							<div class="si-quiz-button">
-								<img class="inject-me" src="./media/imgs/navigation/classic/mcq.svg" alt="" />
-								<img class="" src="./media/imgs/navigation/classic/check-mark.svg" alt="" />
-							</div>
-							<p>Query knowledge playfully.</p>
-						</li>
-						<li id="i1-correct3">
-							<div class="si-quiz-button">
-								<img class="inject-me" src="./media/imgs/navigation/classic/mcq.svg" alt="" />
-								<img class="" src="./media/imgs/navigation/classic/check-mark.svg" alt="" />
-							</div>
-							<p>Allow self-examination.</p>
-						</li>
-					</ul>
+					<div class="caption caption-1">gestión de clientes</div>
+					<div class="caption caption-2">Desarrollo de clientes</div>
+					<div class="caption caption-3">Encontrar el equilibrio</div>
+					<!-- INSERT END -->
+
+					<button class="si-menu menu1 si-menu__js">
+						<h5>Productividad y eficiencia</h5>
+						<img class="check" data-src="./media/imgs/interactions/menu/checkmark.svg" alt="" />
+					</button>
+					<button class="si-menu menu2 si-menu__js">
+						<h5>Superar los desafíos</h5>
+						<img class="check" data-src="./media/imgs/interactions/menu/checkmark.svg" alt="" />
+					</button>
+					<button class="si-menu menu3 si-menu__js">
+						<h5>Áreas de influencia</h5>
+						<img class="check" data-src="./media/imgs/interactions/menu/checkmark.svg" alt="" />
+					</button>
+					<button class="si-menu menu4 si-menu__js">
+						<h5>
+							Crear relaciones y volverse un asesor de confianza
+						</h5>
+						<img class="check" data-src="./media/imgs/interactions/menu/checkmark.svg" alt="" />
+					</button>
+					<button class="si-menu menu5 si-menu__js">
+						<h5>Implementación en campo</h5>
+						<img class="check" data-src="./media/imgs/interactions/menu/checkmark.svg" alt="" />
+					</button>
 				</section>
+				<section id="v2">
+					<video id="Video_02" class="video-js vjs-16-9 vjs-default-skin vjs-big-play-centered" playsinline controls preload="auto" crossorigin="anonymous">
+						<source data-src="./media/video/v2.mp4" type="video/mp4" label="1080p" res="1080" />
+						<track kind="captions" src="./media/video/subs2.vtt" srclang="en" label="Spanish" default />
+					</video>
+				</section>
+				<section id="i1" class="dnd1">
+					<h2>Maximizar tu ruta</h2>
+					<h3>Ayuda a Faiza a maximizar su tiempo con los clientes haciendo un mapa de su ruta de reuniones. Selecciona las 6 ubicaciones de clientes que sean geográficamente ideales para el tiempo que Faiza pasa en la ruta.</h3>
 
+					<img class="map" src="./media/imgs/interactions/i1/map.svg" alt="" />
+
+					<img id="c1" class="hotspot-button hotspot-button__js" src="./media/imgs/interactions/i1/pin.svg" />
+					<img id="c2" class="hotspot-button hotspot-button__js" src="./media/imgs/interactions/i1/pin.svg" />
+					<img id="c3" class="hotspot-button hotspot-button__js" src="./media/imgs/interactions/i1/pin.svg" />
+					<img id="c4" class="hotspot-button hotspot-button__js" src="./media/imgs/interactions/i1/pin.svg" />
+					<img id="c5" class="hotspot-button hotspot-button__js" src="./media/imgs/interactions/i1/pin.svg" />
+					<img id="c6" class="hotspot-button hotspot-button__js" src="./media/imgs/interactions/i1/pin.svg" />
+					<img id="c7" class="hotspot-button hotspot-button__js" src="./media/imgs/interactions/i1/pin.svg" />
+					<img id="c8" class="hotspot-button hotspot-button__js" src="./media/imgs/interactions/i1/pin.svg" />
+					<img id="c9" class="hotspot-button hotspot-button__js" src="./media/imgs/interactions/i1/pin.svg" />
+
+					<img id="car" class="pos0" src="./media/imgs/interactions/i1/car.svg" alt="" />
+
+					<div id="i1-positive" class="si-modal si-modal__js">
+						<div class="si-modal-content-container side-by-side">
+							<p style="top: 17%">
+								<b>¡Fantástico!</b><br /><br />
+
+								Ayudaste a Faiza a maximizar su tiempo en ruta.
+							</p>
+							<img style="top: 59%; left: 12%; width: 88%; height: 78%" src="./media/imgs/interactions/i1/i1P-image.svg" alt="" />
+						</div>
+					</div>
+					<div id="i1-negative" class="si-modal si-modal__js">
+						<div class="si-modal-content-container side-by-side">
+							<p>
+								<b>Inténtalo de nuevo.</b><br /><br />
+								Piensa en seleccionar a clientes que estén cerca unos de otros geográficamente.
+							</p>
+							<img src="./media/imgs/interactions/i1/i1N-image.svg" alt="" />
+						</div>
+					</div>
+					<div id="i1-negative-final" class="si-modal si-modal__js">
+						<div class="si-modal-content-container side-by-side">
+							<p>
+								<b>No precisamente.</b><br /><br />
+								Al planificar la ruta de visitas a los clientes que están cerca entre sí, Faiza puede dedicar más tiempo a hacer crecer su negocio con los clientes y pasar menos tiempo <br/>en la ruta.
+							</p>
+							<img src="./media/imgs/interactions/i1/i1NN-image.svg" alt="" />
+						</div>
+					</div>
+				</section>
+				<section id="v3">
+					<video id="Video_03" class="video-js vjs-16-9 vjs-default-skin vjs-big-play-centered" playsinline controls preload="auto" crossorigin="anonymous">
+						<source data-src="./media/video/v3.mp4" type="video/mp4" label="1080p" res="1080" />
+						<track kind="captions" src="./media/video/subs3.vtt" srclang="en" label="Spanish" default />
+					</video>
+				</section>
 				<section id="i2">
-					<img class="circle-image" src="media/project/imgs/circle_education.svg" />
-					<h2>Single Choice Quiz</h2>
-					<h3>
-						Using gamification elements is widely accepted as the way to go in eLearning!<br />
-						But why is that?
-					</h3>
+					<h2>Maximizar los resultados del negocio</h2>
+					<h3>Un cliente le pide a Faiza que le proporcione cierta cantidad de muestras<br/>gratuitas de un producto. ¿Qué puede pedirle al cliente para recibir un retorno de la inversión?<br/>Selecciona todas las opciones que correspondan.</h3>
+					<img class="main" src="./media/imgs/interactions/i2/i2-image.svg" alt="" />
+
+					<p class="question">Faiza debe pedirle al cliente que realice lo siguiente:</p>
 
 					<ul class="si-quiz si-quiz__js">
-						<li id="i2-wrong1">
-							<div class="si-quiz-button">
-								<img class="inject-me" src="./media/imgs/navigation/classic/scq.svg" alt="" />
-								<img class="" src="./media/imgs/navigation/classic/check-mark.svg" alt="" />
-							</div>
-							<p>It helps courses to be built especially easy and fast.</p>
-						</li>
-						<li id="i2-wrong2">
-							<div class="si-quiz-button">
-								<img class="inject-me" src="./media/imgs/navigation/classic/mcq.svg" alt="" />
-								<img class="" src="./media/imgs/navigation/classic/check-mark.svg" alt="" />
-							</div>
-							<p>It decreases knowledge absorption and retention.</p>
-						</li>
 						<li id="i2-correct">
 							<div class="si-quiz-button">
+								<img class="inject-me" src="./media/imgs/navigation/classic/scq.svg" alt="" />
+								<img class="" src="./media/imgs/navigation/classic/check-mark.svg" alt="" />
+							</div>
+							<p>Identifique a los nuevos pacientes que utilizarán el producto.</p>
+						</li>
+						<li>
+							<div class="si-quiz-button">
 								<img class="inject-me" src="./media/imgs/navigation/classic/mcq.svg" alt="" />
 								<img class="" src="./media/imgs/navigation/classic/check-mark.svg" alt="" />
 							</div>
-							<p>It keeps the learner engaged and alert.</p>
+							<p>Pague.</p>
+						</li>
+						<li id="i2-correct2">
+							<div class="si-quiz-button">
+								<img class="inject-me" src="./media/imgs/navigation/classic/mcq.svg" alt="" />
+								<img class="" src="./media/imgs/navigation/classic/check-mark.svg" alt="" />
+							</div>
+							<p>Realice un seguimiento de los pacientes que han utilizado las muestras del producto.</p>
+						</li>
+						<li>
+							<div class="si-quiz-button">
+								<img class="inject-me" src="./media/imgs/navigation/classic/mcq.svg" alt="" />
+								<img class="" src="./media/imgs/navigation/classic/check-mark.svg" alt="" />
+							</div>
+							<p>Devuelva las muestras que no se hayan utilizado.</p>
+						</li>
+						<li>
+							<div class="si-quiz-button">
+								<img class="inject-me" src="./media/imgs/navigation/classic/mcq.svg" alt="" />
+								<img class="" src="./media/imgs/navigation/classic/check-mark.svg" alt="" />
+							</div>
+							<p>Acepte comprar las muestras del producto al final del mes.</p>
 						</li>
 					</ul>
-				</section>
 
+					<div id="i2-positive" class="si-modal si-modal__js">
+						<div class="si-modal-content-container side-by-side">
+							<p>
+								<b>¡Muy buen trabajo!</b><br /><br />
+
+								Ahora Faiza podrá maximizar su retorno de la inversión y mejorar los resultados del negocio.
+							</p>
+							<img src="./media/imgs/interactions/i2/i2P-image.svg" alt="" />
+						</div>
+					</div>
+					<div id="i2-negative" class="si-modal si-modal__js">
+						<div class="si-modal-content-container side-by-side">
+							<p>
+								<b>Buen intento.</b><br /><br />
+								Piensa en qué hará crecer una relación de negocios con el cliente.
+							</p>
+							<img src="./media/imgs/interactions/i2/i2N-image.svg" alt="" />
+						</div>
+					</div>
+					<div id="i2-negative-final" class="si-modal si-modal__js">
+						<div class="si-modal-content-container side-by-side">
+							<p>
+								<b>No precisamente.</b><br /><br />
+								Para maximizar el retorno de la inversión y hacer crecer el negocio, Faiza deberá pedirle al cliente que identifique a los nuevos pacientes que utilizarán el producto y que realice un seguimiento de los pacientes que han utilizado las muestras del producto.
+							</p>
+							<img src="./media/imgs/interactions/i2/i2NN-image.svg" alt="" />
+						</div>
+					</div>
+				</section>
+				<section id="v4">
+					<video id="Video_04" class="video-js vjs-16-9 vjs-default-skin vjs-big-play-centered" playsinline controls preload="auto" crossorigin="anonymous">
+						<source data-src="./media/video/v4.mp4" type="video/mp4" label="1080p" res="1080" />
+						<track kind="captions" src="./media/video/subs4.vtt" srclang="en" label="Spanish" default />
+					</video>
+				</section>
 				<section id="i3">
-					<img class="whiteboard" src="media/project/imgs/whiteboard.svg" />
-					<h2>Drag and drop</h2>
-					<h3>Learning through variation!</h3>
+					<h2>Conocer tus recursos</h2>
+					<h3>
+						Para poder resolver problemas, Faiza necesita saber qué recursos utilizar.<br/>
+						Selecciona todos los recursos y colócalos en su bolsa de trabajo para que siempre los recuerde. 
+					</h3>
 
-					<div class="the-text">
-						Putting the <span class="the-blank">&nbsp;</span> at the forefront of our learning approach makes for the perfect transition from theory to practice.
-						<!-- <div id="i3_drag1" class="draggable">teacher</div> -->
-						<!-- <div id="i3_drag1" class="draggable">teacher</div> -->
+					<!-- REPLACE START -->
+					<div id="i3-drag1" class="draggable">
+						<img src="./media/imgs/interactions/i3/RegionalSalesManager.svg" alt="" />
+						<div class="caption caption-1">Gerente regional<br/>de Ventas</div>
 					</div>
-					<div id="i3_drag1" class="draggable"><img src="media/project/imgs/teacher-label.svg" alt="" /></div>
-					<!-- <div id="i3_drag2" class="draggable">learner</div> -->
-					<div id="i3_drag2" class="draggable"><img src="media/project/imgs/learner-label.svg" alt="" /></div>
-					<div id="i3_drop" class="droppable"></div>
-				</section>
+					<div id="i3-drag2" class="draggable">
+						<img src="./media/imgs/interactions/i3/ProfessionalVeterinaryAffairs.svg" alt="" />
+						<div class="caption caption-2">Asuntos Veterinarios<br/>Profesionales</div>
+					</div>
+					<div id="i3-drag3" class="draggable">
+						<img src="./media/imgs/interactions/i3/HillsBrandsandProducts.svg" alt="" />
+						<div class="caption caption-3">Marcas y productos<br/>de Hill's</div>
+					</div>
+					<div id="i3-drag4" class="draggable">
+						<img src="./media/imgs/interactions/i3/CustomerService.svg" alt="" />
+						<div class="caption caption-4">Atención al cliente </div>
+					</div>
+					<div id="i3-drag5" class="draggable">
+						<img src="./media/imgs/interactions/i3/LogisticsServices.svg" alt="" />
+						<div class="caption caption-5">Servicios de Logística</div>
+					</div>
+					<!-- REPLACE END -->
 
+					<div id="i3-drop1" class="droppable">
+						<img src="./media/imgs/interactions/i3/bag.svg" alt="" />
+					</div>
+
+					<div id="i3-positive" class="si-modal si-modal__js">
+						<div class="si-modal-content-container side-by-side">
+							<p>
+								<b>¡Genial!</b><br /><br />
+
+								Faiza sabe que puede ponerse en contacto con Atención al Cliente, Asuntos Veterinarios Profesionales, Servicios de Logística y gerentes regionales de Ventas para pedirles apoyo. También entiende que necesita conocer los productos y las marcas de Hill's.
+							</p>
+							<img src="./media/imgs/interactions/i3/i3P-image.svg" alt="" />
+						</div>
+					</div>
+				</section>
+				<section id="i4">
+					<h2>Enfoque en las áreas de influencia</h2>
+					<h3>
+						Faiza necesita entender las funciones de una clínica veterinaria para poder identificar quiénes son los responsables de la toma de decisiones claves, los defensores nutricionales, y si existen socios o aliados internos.<br/>
+						Haz clic en cualquier persona para averiguar quién es quién en la clínica y en la tienda de mascotas.
+					</h3>
+
+					<img class="main" src="./media/imgs/interactions/i4/officeImage.svg" alt="" />
+					<img class="chairs" src="./media/imgs/interactions/i4/chairsImage.svg" alt="" />
+
+					<img id="p1" class="p1 hotspot-button hotspot-button__js" src="./media/imgs/interactions/i4/BusinessorOfficeManagerImage.svg" alt="" />
+					<img id="p2" class="p2 hotspot-button hotspot-button__js" src="./media/imgs/interactions/i4/VetTechImage.svg" alt="" />
+					<img id="p3" class="p3 hotspot-button hotspot-button__js" src="./media/imgs/interactions/i4/silhouetteImage.svg" alt="" />
+					<img id="p4" class="p4 hotspot-button hotspot-button__js" src="./media/imgs/interactions/i4/FoodOrder.svg" alt="" />
+					<img id="p5" class="p5 hotspot-button hotspot-button__js" src="./media/imgs/interactions/i4/deskImage.svg" alt="" />
+					<img id="p6" class="p6 hotspot-button hotspot-button__js" src="./media/imgs/interactions/i4/VeterinarianImage.svg" alt="" />
+
+					<h5 class="txt txt1">
+						Gerente del negocio<br/>
+						o de la oficina
+					</h5>
+					<h5 class="txt txt2">Técnica veterinaria</h5>
+					<h5 class="txt txt3">
+						Personal de<br/>
+						soporte adicional
+					</h5>
+					<h5 class="txt txt4">
+						Persona encargada de<br/>
+						los pedidos de alimentos
+					</h5>
+					<h5 class="txt txt5">Asistente veterinario</h5>
+					<h5 class="txt txt6">Veterinaria</h5>
+				</section>
+				<section id="i4b">
+					<img class="main" src="./media/imgs/interactions/i4/bg2.svg" alt="" />
+
+					<h2>Enfoque en las áreas de influencia</h2>
+					<h3>
+						Faiza necesita entender las funciones de una clínica veterinaria para poder identificar quiénes son los responsables de la toma de decisiones claves, los defensores nutricionales, y si existen socios o aliados internos.<br/>
+						Haz clic en cualquier persona para averiguar quién es quién en la clínica y en la tienda de mascotas.
+					</h3>
+
+					
+					<img id="a1" class="a1 hotspot-button hotspot-button__js" src="./media/imgs/interactions/i4/additional.svg" alt="" />
+					<img id="a2" class="a2 hotspot-button hotspot-button__js" src="./media/imgs/interactions/i4/petstoremanager.svg" alt="" />
+					<img id="a3" class="a3 hotspot-button hotspot-button__js" src="./media/imgs/interactions/i4/assistantmanager.svg" alt="" />
+
+					<h5 class="txt txt1">
+						Personal asociado<br/>
+						adicional
+					</h5>
+					<h5 class="txt txt2">Gerente de la tienda de mascotas</h5>
+					<h5 class="txt txt3">Subgerente</h5>
+					<h5 class="txt txt4">
+						Persona encargada de<br/>
+						los pedidos de alimentos
+					</h5>
+					<h5 class="txt txt5">Asistente veterinario</h5>
+					<h5 class="txt txt6">Veterinaria </h5>
+				</section>
+				<section id="v5">
+					<video id="Video_05" class="video-js vjs-16-9 vjs-default-skin vjs-big-play-centered" playsinline controls preload="auto" crossorigin="anonymous">
+						<source data-src="./media/video/v5.mp4" type="video/mp4" label="1080p" res="1080" />
+						<track kind="captions" src="./media/video/subs5.vtt" srclang="en" label="Spanish" default />
+					</video>
+				</section>
+				<section id="i5">
+					<h2>Acceder a los responsables de la toma de decisiones claves</h2>
+					<h3>Los encargados de la toma de decisiones clave son fundamentales para convertirnos en asesores de confianza. Haz clic en cada elemento para ayudar a Faiza a acceder al responsable de la toma de decisiones clave de esta oficina.</h3>
+
+					<img class="main" src="./media/imgs/interactions/i5/doctorsoffice.svg" alt="" />
+					<img class="girl" src="./media/imgs/interactions/i5/Faiza_neutral.svg" alt="" />
+					<img class="boy" src="./media/imgs/interactions/i5/vet.svg" alt="" />
+
+					<img class="hotspot-button hotspot-button__js" src="./media/imgs/interactions/i5/Diagram.svg" alt="" />
+					<img class="hotspot-button hotspot-button__js" src="./media/imgs/interactions/i5/Compass.svg" alt="" />
+					<img class="hotspot-button hotspot-button__js" src="./media/imgs/interactions/i5/start.svg" alt="" />
+
+					<div id="i5-hs1" class="si-modal si-modal__js">
+						<div class="si-modal-content-container side-by-side">
+							<p>
+								<b>Identificar áreas de alineación</b><br /><br />
+
+								Faiza debe identificar áreas de alineación y desarrollar planes de negocio conjuntos. El modelo APE puede ayudar.<br /><br />
+								APE significa Analizar, Planificar y Ejecutar. Explicaremos      esto con más detalle en un módulo posterior.
+							</p>
+							<img src="./media/imgs/interactions/i5/Diagram.svg" alt="" />
+						</div>
+					</div>
+					<div id="i5-hs2" class="si-modal si-modal__js">
+						<div class="si-modal-content-container side-by-side">
+							<p>
+								<b>Dirigir la relación</b><br /><br />
+
+								Ella necesitará poner en marcha nuevas formas de liderazgo para construir  y desarrollar una asociación con sus clientes e ir un paso adelante de sus competidores.
+							</p>
+							<img src="./media/imgs/interactions/i5/Compass.svg" alt="" />
+						</div>
+					</div>
+					<div id="i5-hs3" class="si-modal si-modal__js">
+						<div class="si-modal-content-container side-by-side">
+							<p>
+								<b>Signos de éxito</b><br /><br />
+
+								Si Faiza cumple de manera consistente con los fundamentos del compromiso del cliente, deberá ver los resultados en comentarios positivos del cliente y en las ventas.
+							</p>
+							<img src="./media/imgs/interactions/i5/start.svg" alt="" />
+						</div>
+					</div>
+					<div id="i5-positive" class="si-modal si-modal__js">
+						<div class="si-modal-content-container side-by-side">
+							<p>
+								<b>¡Buen trabajo!</b><br /><br />
+
+								Ayudaste a Faiza a acceder a un encargado de la toma de decisiones clave y a continuar creando una asociación con este cliente.
+							</p>
+							<img src="./media/imgs/interactions/i5/i5P-image.svg" alt="" />
+						</div>
+					</div>
+				</section>
+				<section id="v6">
+					<video id="Video_06" class="video-js vjs-16-9 vjs-default-skin vjs-big-play-centered" playsinline controls preload="auto" crossorigin="anonymous">
+						<source data-src="./media/video/v6.mp4" type="video/mp4" label="1080p" res="1080" />
+						<track kind="captions" src="./media/video/subs6.vtt" srclang="en" label="Spanish" default />
+					</video>
+				</section>
+				<section id="i6">
+					<h2>Encontrar el equilibrio</h2>
+					<h3>La gestión de clientes y el desarrollo de clientes son necesarios para el éxito. Clasifica las actividades para comprobar que tú y Faiza entienden cuál es cuál.</h3>
+					<img class="main" src="./media/imgs/interactions/i6/Faiza.svg" alt="" />
+					<img class="dragbox" src="./media/imgs/interactions/i6/box.svg" alt="" />
+
+					<h6 class="left">Gestión de<br/>clientes</h6>
+					<h6 class="right">Desarrollo de<br/>clientes</h6>
+
+					<!-- INSERT START -->
+					<div class="caption caption-1">Crear asociaciones</div>
+					<div class="caption caption-2">Brindar servicio y<br/>soporte al cliente</div>
+					<div class="caption caption-3">Procesar pedidos</div>
+					<div class="caption caption-4">Convertirse en<br/>un asesor confiable</div>
+					<!-- INSERT END -->
+
+					<div id="i6-drag1" class="draggable">
+						<img src="./media/imgs/interactions/i6/partnerships.svg" alt="" />
+					</div>
+					<div id="i6-drag2" class="draggable">
+						<img src="./media/imgs/interactions/i6/provide.svg" alt="" />
+					</div>
+					<div id="i6-drag3" class="draggable">
+						<img src="./media/imgs/interactions/i6/process.svg" alt="" />
+					</div>
+					<div id="i6-drag4" class="draggable">
+						<img src="./media/imgs/interactions/i6/interact.svg" alt="" />
+					</div>
+
+					<div id="i6-drop1" class="droppable"></div>
+					<div id="i6-drop2" class="droppable"></div>
+					<div id="i6-drop3" class="droppable"></div>
+					<div id="i6-drop4" class="droppable"></div>
+
+					<div id="i6-positive" class="si-modal si-modal__js">
+						<div class="si-modal-content-container side-by-side">
+							<p>
+								<b>¡Buen trabajo!</b><br /><br />
+
+								Has identificado correctamente las actividades de la gestión de clientes y del desarrollo de clientes.
+							</p>
+							<img src="./media/imgs/interactions/i6/i6P-image.svg" alt="" />
+						</div>
+					</div>
+					<div id="i6-negative" class="si-modal si-modal__js">
+						<div class="si-modal-content-container side-by-side">
+							<p>
+								<b>Inténtalo de nuevo.</b><br /><br />
+								Recuerda que las actividades de gestión de clientes son las operaciones cotidianas de un gerente de territorio. El desarrollo de clientes lleva estas relaciones al siguiente nivel.
+							</p>
+							<img src="./media/imgs/interactions/i6/i6N-image.svg" alt="" />
+						</div>
+					</div>
+					<div id="i6-negative-final" class="si-modal si-modal__js">
+						<div class="si-modal-content-container side-by-side">
+							<p>
+								<b>No precisamente.</b><br /><br />
+								La gestión de clientes incluye procesar pedidos y brindar servicio y soporte a los clientes. El desarrollo de clientes se enfoca en crear asociaciones y en concentrarse en el compromiso para convertirse en un asesor confiable.
+							</p>
+							<img src="./media/imgs/interactions/i6/i6NN-image.svg" alt="" />
+						</div>
+					</div>
+					<div id="i6-end" class="si-modal si-modal__js">
+						<div class="si-modal-content-container side-by-side">
+							<p style="width: 72%">
+								<b>Equilibrio, equilibrio, equilibrio</b><br /><br />
+								Recuerda que la clave para el equilibrio es el liderazgo personal. Pregúntate: "¿Cómo puedo marcar la diferencia con mis<br/>clientes hoy?".
+								<br /><br />
+								Debes enfocarte en proporcionar valor y en apoyar el éxito de los clientes. No se trata sólo de cuántas visitas hagas en un día, sino del impacto de las interacciones.
+							</p>
+							<img style="left: 71%" src="./media/imgs/interactions/i6/i6.1-image.svg" alt="" />
+						</div>
+					</div>
+				</section>
+				<section id="q1" class="finalquiz">
+					<h5>Q1. Verificación de conocimiento</h5>
+					<h6>Si un encargado de la toma de decisiones clave no está disponible durante tu visita, ¿cuál sería el mejor curso de acción?</h6>
+					<img class="main" src="./media/imgs/interactions/quiz/Q1-image.svg" alt="" />
+
+					<ul class="si-quiz si-quiz__js">
+						<li>
+							<div class="si-quiz-button">
+								<img class="inject-me" src="./media/imgs/navigation/classic/scq.svg" alt="" />
+								<img class="" src="./media/imgs/navigation/classic/check-mark.svg" alt="" />
+							</div>
+							<p>Volver al día siguiente</p>
+						</li>
+						<li id="q1-correct">
+							<div class="si-quiz-button">
+								<img class="inject-me" src="./media/imgs/navigation/classic/mcq.svg" alt="" />
+								<img class="" src="./media/imgs/navigation/classic/check-mark.svg" alt="" />
+							</div>
+							<p>Dar seguimiento virtual</p>
+						</li>
+						<li>
+							<div class="si-quiz-button">
+								<img class="inject-me" src="./media/imgs/navigation/classic/mcq.svg" alt="" />
+								<img class="" src="./media/imgs/navigation/classic/check-mark.svg" alt="" />
+							</div>
+							<p>Volver la semana siguiente</p>
+						</li>
+						<li>
+							<div class="si-quiz-button">
+								<img class="inject-me" src="./media/imgs/navigation/classic/mcq.svg" alt="" />
+								<img class="" src="./media/imgs/navigation/classic/check-mark.svg" alt="" />
+							</div>
+							<p>Volver el mes siguiente</p>
+						</li>
+						<li>
+							<div class="si-quiz-button">
+								<img class="inject-me" src="./media/imgs/navigation/classic/mcq.svg" alt="" />
+								<img class="" src="./media/imgs/navigation/classic/check-mark.svg" alt="" />
+							</div>
+							<p>Volver en el siguiente ciclo</p>
+						</li>
+					</ul>
+
+					<div id="q1-positive" class="si-modal si-modal__js">
+						<div class="si-modal-content-container side-by-side">
+							<p>
+								<b>¡Correcto!</b><br /><br />
+
+								Puedes aprovechar las reuniones virtuales para hablar con un encargado de la toma de decisiones clave que no haya estado disponible.
+							</p>
+							<img src="./media/imgs/interactions/quiz/Q1P-image.svg" alt="" />
+						</div>
+					</div>
+					<div id="q1-negative" class="si-modal si-modal__js">
+						<div class="si-modal-content-container side-by-side">
+							<p>
+								<b>Inténtalo de nuevo.</b><br /><br />
+								Recuerda que tu ciclo de visitas se debe planificar con varias semanas de anticipación.
+							</p>
+							<img src="./media/imgs/interactions/quiz/Q1N-image.svg" alt="" />
+						</div>
+					</div>
+					<div id="q1-negative-final" class="si-modal si-modal__js">
+						<div class="si-modal-content-container side-by-side">
+							<p>
+								<b>No precisamente.</b><br /><br />
+								Puedes programar una reunión para dar seguimiento virtual.
+							</p>
+							<img src="./media/imgs/interactions/quiz/Q1NN-image.svg" alt="" />
+						</div>
+					</div>
+				</section>
+				<section id="q2" class="finalquiz">
+					<h5>Q2. Verificación de conocimiento</h5>
+					<h6>¿Cuáles de las siguientes opciones representan formas para convertirte en un asesor confiable? Selecciona todas las opciones que correspondan.</h6>
+					<img class="main" src="./media/imgs/interactions/quiz/Q1-image.svg" alt="" />
+
+					<ul class="si-quiz si-quiz__js">
+						<li id="q2-correct2">
+							<div class="si-quiz-button">
+								<img class="inject-me" src="./media/imgs/navigation/classic/scq.svg" alt="" />
+								<img class="" src="./media/imgs/navigation/classic/check-mark.svg" alt="" />
+							</div>
+							<p>Aprovechar los análisis del negocio</p>
+						</li>
+						<li id="q2-correct">
+							<div class="si-quiz-button">
+								<img class="inject-me" src="./media/imgs/navigation/classic/mcq.svg" alt="" />
+								<img class="" src="./media/imgs/navigation/classic/check-mark.svg" alt="" />
+							</div>
+							<p>Entender el entorno del mercado</p>
+						</li>
+						<li>
+							<div class="si-quiz-button">
+								<img class="inject-me" src="./media/imgs/navigation/classic/mcq.svg" alt="" />
+								<img class="" src="./media/imgs/navigation/classic/check-mark.svg" alt="" />
+							</div>
+							<p>Procesar pedidos</p>
+						</li>
+						<li>
+							<div class="si-quiz-button">
+								<img class="inject-me" src="./media/imgs/navigation/classic/mcq.svg" alt="" />
+								<img class="" src="./media/imgs/navigation/classic/check-mark.svg" alt="" />
+							</div>
+							<p>Volver el mes siguiente</p>
+						</li>
+						<li id="q2-correct3">
+							<div class="si-quiz-button">
+								<img class="inject-me" src="./media/imgs/navigation/classic/mcq.svg" alt="" />
+								<img class="" src="./media/imgs/navigation/classic/check-mark.svg" alt="" />
+							</div>
+							<p>Conocer a la competencia</p>
+						</li>
+					</ul>
+
+					<div id="q2-positive" class="si-modal si-modal__js">
+						<div class="si-modal-content-container side-by-side">
+							<p>
+								<b>¡Buen trabajo!</b><br /><br />
+
+								Esas son magníficas formas de convertirte en un asesor confiable.
+							</p>
+							<img src="./media/imgs/interactions/quiz/Q1P-image.svg" alt="" />
+						</div>
+					</div>
+					<div id="q2-negative" class="si-modal si-modal__js">
+						<div class="si-modal-content-container side-by-side">
+							<p>
+								<b>Inténtalo de nuevo.</b><br /><br />
+								Recuerda que convertirte en un asesor confiable es una actividad del desarrollo de clientes. La gestión de clientes también es importante, pero estas tareas son más cotidianas.
+							</p>
+							<img src="./media/imgs/interactions/quiz/Q1N-image.svg" alt="" />
+						</div>
+					</div>
+					<div id="q2-negative-final" class="si-modal si-modal__js">
+						<div class="si-modal-content-container side-by-side">
+							<p>
+								<b>No precisamente.</b><br /><br />
+								Aprovechar los análisis del negocio, entender el entorno del mercado y conocer a la competencia pueden ayudar a convertirte en un asesor confiable.
+							</p>
+							<img src="./media/imgs/interactions/quiz/Q1NN-image.svg" alt="" />
+						</div>
+					</div>
+				</section>
+				<section id="q3" class="finalquiz">
+					<h5>Q3. Verificación de conocimiento</h5>
+					<h6>¿Cuál es el enfoque clave del éxito?</h6>
+					<img class="main" src="./media/imgs/interactions/quiz/Q1-image.svg" alt="" />
+
+					<ul class="si-quiz si-quiz__js">
+						<li>
+							<div class="si-quiz-button">
+								<img class="inject-me" src="./media/imgs/navigation/classic/scq.svg" alt="" />
+								<img class="" src="./media/imgs/navigation/classic/check-mark.svg" alt="" />
+							</div>
+							<p>La cantidad de visitas que realizas</p>
+						</li>
+						<li>
+							<div class="si-quiz-button">
+								<img class="inject-me" src="./media/imgs/navigation/classic/mcq.svg" alt="" />
+								<img class="" src="./media/imgs/navigation/classic/check-mark.svg" alt="" />
+							</div>
+							<p>Dejar información sobre los productos</p>
+						</li>
+						<li id="q3-correct">
+							<div class="si-quiz-button">
+								<img class="inject-me" src="./media/imgs/navigation/classic/mcq.svg" alt="" />
+								<img class="" src="./media/imgs/navigation/classic/check-mark.svg" alt="" />
+							</div>
+							<p>Proporcionar valor a los clientes</p>
+						</li>
+					</ul>
+
+					<div id="q3-positive" class="si-modal si-modal__js">
+						<div class="si-modal-content-container side-by-side">
+							<p>
+								<b>¡Correcto!</b><br /><br />
+
+								Proporcionar valor a los clientes y compartir su éxito es clave.
+							</p>
+							<img src="./media/imgs/interactions/quiz/Q1P-image.svg" alt="" />
+						</div>
+					</div>
+					<div id="q3-negative" class="si-modal si-modal__js">
+						<div class="si-modal-content-container side-by-side">
+							<p>
+								<b>Inténtalo de nuevo.</b><br /><br />
+								El liderazgo personal marca la diferencia.
+							</p>
+							<img src="./media/imgs/interactions/quiz/Q1N-image.svg" alt="" />
+						</div>
+					</div>
+					<div id="q3-negative-final" class="si-modal si-modal__js">
+						<div class="si-modal-content-container side-by-side">
+							<p>
+								<b>No precisamente.</b><br /><br />
+								Debes enfocarte en proporcionar valor a los clientes.
+							</p>
+							<img src="./media/imgs/interactions/quiz/Q1NN-image.svg" alt="" />
+						</div>
+					</div>
+				</section>
 				<section id="end">
-					<img class="maria" src="./media/project/imgs/maria_jumping.svg" alt="" />
-					<div class="text-block">
-						<h1>Congratulations! You did great!</h1>
-						<h2>You've completed the test package course!</h2>
-						<!-- <p>
-							You answered<b> <span id="correct-answers"></span>/3 </b>questions correct.
-						</p> -->
-						<p>On the video slide, you should have been able to change the video resolution and toggle subtitles on and off.</p>
+					<h1>¡Felicidades!</h1>
+					<h2>
+						Terminaste el primer módulo del curso Fundamentos del Desarrollo de Clientes. <br /><br />
+						La próxima vez, analizaremos tu comprensión sobre tu función, tu cliente y tu ambiente de venta minorista.
+					</h2>
 
-						<p>
-							If you are using the package inside your LMS,<br />the course should be marked as <b>successful</b> and <b>completed</b>,<br />and the score should have been set to <b><span id="score-percentage">100</span>%</b>.
-						</p>
-
-						<p>Finally, please test the download of the certificate <a href="media/project/pdf/certificate.pdf" target="_blank" rel="noopener noreferrer">here</a>.</p>
-						<h3>Other than that, you should be good to go!<br />Feel free to close the browser window or return to your LMS.</h3>
-					</div>
-					<!-- <img class="si-end-logo" src="./media/imgs/_imgs/logo.svg" alt="" /> -->
+					<!-- center image -->
+					<img class="center-image" src="./media/imgs/interactions/startend/endscreen-image.svg" alt="" />
+					<!-- bottom simpleshow logo -->
+					<img class="si-end-logo" src="./media/imgs/_imgs/logo.svg" alt="" />
 				</section>
-
+				<!-- ##################################### Begin Nav Container ########################################## -->
 				<div id="si-nav-container">
 					<nav id="si-course-nav">
 						<button id="si-home" class="si-nav__js si-nav-style__js" aria-label="Home">
@@ -174,10 +729,19 @@
 							&nbsp;
 							<img class="si-img-swap__js inject-me" src="./media/imgs/navigation/classic/menu.svg" />
 						</button>
+						<button id="si-mute" class="si-nav__js" aria-label="Mute">
+							&nbsp;
+							<img class="inject-me muted" src="./media/imgs/navigation/muted.svg" />
+							<img class="inject-me unmuted" src="./media/imgs/navigation/unmuted.svg" />
+						</button>
 						<button id="si-full" class="si-nav__js si-nav-style__js" aria-label="Fullscreen">
 							&nbsp;
 							<img class="si-img-swap__js inject-me" src="./media/imgs/navigation/classic/fullscreen.svg" />
 						</button>
+						<a id="si-transcript" href="#" target="_blank" download title="Download Transcript" class="si-nav__js si-nav-style__js" aria-label="Download Transcript"
+							>&nbsp;
+							<img class="si-img-swap__js inject-me" style="pointer-events: none" src="./media/imgs/navigation/transcript.svg" alt="Download Transcript" />
+						</a>
 					</nav>
 					<nav id="si-slide-nav">
 						<button id="si-back" class="si-nav__js si-nav-style__js" aria-label="Previous Slide">
@@ -193,11 +757,17 @@
 							<img class="si-img-swap__js inject-me si-nav-symbol" src="./media/imgs/navigation/classic/reset-arrow.svg" />
 						</button>
 						<button id="si-exit" class="si-nav__js si-nav-style__js" aria-label="Exit Course">
-							&nbsp;
-							<img class="si-img-swap__js inject-me si-nav-symbol" src="./media/imgs/navigation/classic/exit-symbol.svg" />
+							Exit
+							<!-- <img class="si-img-swap__js inject-me si-nav-symbol" src="./media/imgs/navigation/classic/exit-symbol.svg" /> -->
 						</button>
 					</nav>
 					<div id="si-lower-nav">
+						<button id="si-coins" class="si-nav__js si-nav-style__js" aria-label="Fullscreen">
+							<img class="inject-me" src="./media/imgs/navigation/coin.svg" />
+							<div>
+								<p id="coin-text">0</p>
+							</div>
+						</button>
 						<div id="si-progress" class="si-nav__js si-nav-style__js">
 							<div id="si-progress-meter" data-percent="0" data-name="" data-offset="0"></div>
 						</div>
@@ -206,32 +776,32 @@
 							<div>10 min</div>
 						</div>
 					</div>
-					<div id="si-logo" class="si-nav__js">
-						<img src="./media/imgs/_imgs/logo.svg" alt="company logo" />
+					<div id="si-logo" class="si-nav__js si-logo-swap__js">
+						<img src="./media/imgs/interactions/hills-logo.svg" alt="company logo" />
 					</div>
 					<div id="si-buttons">
 						<button id="si-start" class="si-nav__js si-nav-style__js">
 							<img class="si-classic-rect-image" src="./media/imgs/navigation/classic/rect-small-shadow.svg" alt="button" />
-							<div>Start</div>
+							<div>Comenzar</div>
 							<img class="inject-me si-img-swap__js si-button-arrow" src="./media/imgs/navigation/classic/right-arrow.svg" alt="right arrow" />
 						</button>
 						<button id="si-submit" class="si-nav__js si-nav-style__js si-submit-style">
 							<img class="si-classic-rect-image" src="./media/imgs/navigation/classic/rect-small-shadow.svg" alt="button" />
-							<div>Submit</div>
+							<div>ENVIAR</div>
 							<img class="inject-me si-img-swap__js si-button-arrow" src="./media/imgs/navigation/classic/right-arrow.svg" alt="right arrow" />
 						</button>
 						<button id="si-custom-submit" class="si-nav__js si-nav-style__js si-submit-style">
 							<img class="si-classic-rect-image" src="./media/imgs/navigation/classic/rect-small-shadow.svg" alt="button" />
-							<div>Submit</div>
+							<div>ENVIAR</div>
 							<img class="inject-me si-img-swap__js si-button-arrow" src="./media/imgs/navigation/classic/right-arrow.svg" alt="right arrow" />
 						</button>
 						<button id="si-reset" class="si-nav__js si-nav-style__js">
 							<img class="si-classic-rect-image" src="./media/imgs/navigation/classic/rect-small-shadow.svg" alt="button" />
-							<div>Reset</div>
+							<div>RESTABLECER</div>
 							<img class="inject-me si-img-swap__js si-button-arrow" src="./media/imgs/navigation/classic/reset-arrow.svg" alt="reset arrow" />
 						</button>
 					</div>
-					<div id="si-click-icon" class="si-nav__js si-click-custom">
+					<div class="si-helper-icon si-nav__js si-click-custom">
 						<img class="si-img-swap__js si-nav-style__js inject-me" src="./media/imgs/navigation/classic/click-icon.svg" alt="click-icon" />
 					</div>
 				</div>
@@ -278,104 +848,15 @@
 						</div>
 					</div>
 				</div>
-				<div class="si-modal-container si-modal-container__js">
-					<div id="i1-positive" class="si-modal si-modal__js si-feedback-positive">
-						<div class="si-modal-content-container">
-							<p><b>Correct!</b></p>
-							<p>Learning through testing makes learning success measurable, allows for self-examination, and queries knowledge playfully!</p>
-						</div>
-					</div>
-					<div id="i1-negative" class="si-modal si-modal__js si-feedback-negative">
-						<div class="si-modal-content-container">
-							<p><b>That wasn't quite right!</b></p>
-							<p>There are even more reasons!</p>
-						</div>
-					</div>
-					<div id="i1-negative-final" class="si-modal si-modal__js si-feedback-negative-final">
-						<div class="si-modal-content-container">
-							<p><b>Sorry again!</b></p>
-							<p>The correct answer is: <br />Learning through testing makes learning success measurable, allows for self-examination, and queries knowledge playfully!</p>
-						</div>
-					</div>
-					<div id="i2-positive" class="si-modal si-modal__js si-feedback-positive">
-						<div class="si-modal-content-container">
-							<p><b>Correct!</b></p>
-							<p>Keeping the learner engaged is essential for successful training.</p>
-						</div>
-					</div>
-					<div id="i2-negative" class="si-modal si-modal__js si-feedback-negative">
-						<div class="si-modal-content-container">
-							<p><b>Sorry!</b></p>
-							<p><b>Hint:</b> Think about what's essential to successful learning.</p>
-						</div>
-					</div>
-					<div id="i2-negative-final" class="si-modal si-modal__js si-feedback-negative-final">
-						<div class="si-modal-content-container">
-							<p><b>That wasn't quite right!</b></p>
-							<p>Keeping the learner engaged is essential for successful training!</p>
-						</div>
-					</div>
-					<div id="i3-positive" class="si-modal si-modal__js si-feedback-positive">
-						<div class="si-modal-content-container">
-							<p><b>Correct!</b></p>
-							<p>The learner should always be the number one priority when designing eLearning courses.</p>
-						</div>
-					</div>
-					<div id="i3-negative" class="si-modal si-modal__js si-feedback-negative">
-						<div class="si-modal-content-container">
-							<p><b>That wasn't quite right!</b></p>
-							<p><b>Hint:</b> The teacher is not the priority.</p>
-						</div>
-					</div>
-					<div id="i3-negative-final" class="si-modal si-modal__js si-feedback-negative-final">
-						<div class="si-modal-content-container">
-							<p><b>Sorry again!</b></p>
-							<p>The learner should always be the number one priority when designing eLearning courses.</p>
-						</div>
-					</div>
-				</div>
+				<!-- ##################################### Begin Feedback and Hotspot Modals ########################################## -->
+
+				<div class="si-modal-container si-modal-container__js"></div>
 			</div>
 			<!--slides-->
 		</div>
 		<!--revealjs-->
 
-		<script>
-			var globalVar = {
-				homeSlide: 1, //1=first slide
-				devMode: false,
-				scormSettings: {
-					useScorm: true,
-					standard: 'scorm', // if standard is set to "aicc", the AICC API is used in setScormCompletion(), every other value will be ignored.
-					bookmarking: {
-						useBookmarking: true,
-						name: 'curChapter'
-					},
-					minScore: '0',
-					maxScore: '100'
-				},
-				video: {
-					progressControl: true // Set it to false to globally disable seeking for all videos. Setting the 'videoSeeking' attribute in data.js will overwrite this.
-				},
-				fontSizeFactor: 45,
-				randomizeSlides: {
-					useRandomize: false,
-					slides: {
-						yourKEYvalue: [4, 8, 9] // Slidenumbers 4,5,6,7,8 gets shuffled and return to 9 after going through all of them
-					}
-				},
-				randomizedArray: [], // don't edit
-				dndAnswers: {}, // don't edit
-				sendData: '', // don't edit
-				shuffledSlides: {}, // don't edit
-				videoSeen: {},
-				fadeNavigation: true, // fades nav controls on videos
-				buttonType: 'clean' // classic, clean, or custom
-			};
-		</script>
-
 		<script src="js/vendor.min.js"></script>
-
-		<!-- <script src="js/post-message-api.js"></script> -->
 
 		<script nomodule src="js/polyfills.min.js"></script>
 		<script src="js/interactive.min.js"></script>

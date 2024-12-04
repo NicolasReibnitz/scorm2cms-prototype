@@ -12,7 +12,7 @@ module.exports = {
 				/** Whether to enable auto-fixing in which the `any` type is converted to the `unknown` type. */
 				fixToUnknown: true,
 				/** Whether to ignore rest parameter arrays. */
-				ignoreRestArgs: true
+				ignoreRestArgs: false
 			}
 		]
 	}

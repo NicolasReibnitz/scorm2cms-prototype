@@ -7,6 +7,12 @@ body.wrapper {
 	}
 
 	iframe {
-		aspect-ratio: 16/9.3;
+		aspect-ratio: 16/9;
+	}
+
+	&.dev-mode {
+		iframe {
+			aspect-ratio: 16/9.3;
+		}
 	}
 }

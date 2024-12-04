@@ -1,8 +1,8 @@
-// import 'scorm-again/dist/scorm12.js';
-import Scorm12API from 'scorm-again/src/Scorm12API.js';
+import { Scorm12API } from 'scorm-again';
 
-import useHelpers from '@global/helpers.ts';
+import useConsoleLogger from '@global/console-logger';
 import interactiveURL from '/interactive/index.html?url';
+import { Settings } from 'scorm-again/src/types/api_types';
 
 const interactiveIframe = document.getElementById('interactive-iframe') as HTMLIFrameElement;
 const interactiveIframeSrc = interactiveIframe.src;
@@ -10,55 +10,103 @@ const btnTerminate = document.getElementById('btn-terminate');
 const secretToken = import.meta.env.VITE_SECRET_TOKEN; // Shared secret for validation (in .env file)
 const trustedDomains = import.meta.env.VITE_TRUSTED_DOMAINS.split(',').map((str: string) => str.trim());
 const pendingRequests = new Map();
+const devMode = window.parent.document.body.classList.contains('dev-mode');
+
+if (devMode) document.body.classList.add('dev-mode');
+
 let scormEventListenersAdded = false;
 
-const siteSettings = {
+const loggerSettings: LoggerSettings = {
 	siteName: 'Wrapper',
 	siteColor: 'rgb(0 192 204)',
-	logLevel: 5,
-	secretToken,
-	interactiveURL
+	logLevel: 3 // Log level for the logger (0: log, 1: error, 2: warn, 3: info, 4: debug, >=4: all)
 };
 
-const { logger } = useHelpers(siteSettings);
+const { logger } = useConsoleLogger(loggerSettings);
 
-const scormAgainSettings = {
+const scormAgainSettings: Settings = {
 	autocommit: true,
 	autocommitSeconds: 10,
 	logLevel: 3,
 	selfReportSessionTime: true,
-	alwaysSendTotalTime: true
+	alwaysSendTotalTime: true,
+	renderCommonCommitFields: false,
+	sendFullCommit: false
+	// lmsCommitUrl: 'http://localhost:5174/api/lms/commit',
+	// fetchMode: 'cors'
+
+	// responseHandler: async function (response: Response): Promise<ResultObject> {
+	// 	if (typeof response !== 'undefined') {
+	// 		const responseText = await response.text();
+	// 		let httpResult = null;
+	// 		if (responseText) {
+	// 			httpResult = JSON.parse(responseText);
+	// 		}
+	// 		if (httpResult === null || !{}.hasOwnProperty.call(httpResult, 'result')) {
+	// 			if (response.status === 200) {
+	// 				return {
+	// 					result: APIConstants.global.SCORM_TRUE,
+	// 					errorCode: 0
+	// 				};
+	// 			} else {
+	// 				return {
+	// 					result: APIConstants.global.SCORM_FALSE,
+	// 					errorCode: 101
+	// 				};
+	// 			}
+	// 		} else {
+	// 			return {
+	// 				result: httpResult.result,
+	// 				errorCode: httpResult.errorCode
+	// 					? httpResult.errorCode
+	// 					: httpResult.result === APIConstants.global.SCORM_TRUE
+	// 						? 0
+	// 						: 101
+	// 			};
+	// 		}
+	// 	}
+	// 	return {
+	// 		result: APIConstants.global.SCORM_FALSE,
+	// 		errorCode: 101
+	// 	};
+	// },
+	// requestHandler: function (commitObject: CommitObject) {
+	// 	console.log('⚠️⚠️⚠️⚠️ commitObject: ', commitObject);
+	// 	return commitObject;
+	// }
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-	logger.log('Wrapper DOM loaded.');
+	logger.info('Wrapper DOM loaded.');
 	sendMessageToParent({ type: 'status', methodName: 'init', value: 'Wrapper loaded' });
 });
 
-if (interactiveIframe) {
+if (interactiveIframe)
 	interactiveIframe.onload = () => {
 		sendMessageToParent({ type: 'status', methodName: 'iframe', value: 'Iframe loaded' });
 	};
-}
 
 // Global message handler to handle all incoming messages from the parent
 window.addEventListener('message', event => {
 	if (!trustedDomains.includes(event.origin)) return;
-	if (event.data.token !== siteSettings.secretToken) return;
+	if (event.data.token !== secretToken) return;
 
-	logger.log('Message received from parent:', event.data);
+	logger.debug(
+		`[${event.data.requestId}] Message received from parent (${event.data.type}: ${event.data.result}):`,
+		event.data
+	);
 
 	const { requestId } = event.data;
 
 	if (!pendingRequests.has(requestId)) {
-		logger.warn('Request ID not found:', requestId, 'Message ignored.');
+		logger.debug('Request ID not found:', requestId, 'Message ignored.');
 		return;
 	}
 
 	const { resolve } = pendingRequests.get(requestId);
 
 	if (event.data.type === 'statusResponse') {
-		logger.log('Status update response message received from parent:', event.data, event.data.result);
+		// logger.debug('Status update response message received from parent:', event.data, event.data.result);
 
 		if (event.data.methodName === 'init') {
 			initScormAPI(event.data.result);
@@ -86,7 +134,7 @@ btnTerminate?.addEventListener('click', () => {
 });
 
 const handleScormInteraction: HandleScormInteraction = async (methodName, ...args) => {
-	logger.info(`SCORM API method called: ${methodName}`, args);
+	// logger.debug(`SCORM API method called: ${methodName}`, args);
 
 	// Send a message to the parent and return a Promise that resolves with the result
 	return sendMessageToParent({
@@ -94,7 +142,7 @@ const handleScormInteraction: HandleScormInteraction = async (methodName, ...arg
 		methodName,
 		args,
 		CMIElement: args[0],
-		CMIElementValue: args[1] || null
+		value: args[1]
 	}).catch(error => {
 		logger.error(`Error processing SCORM method ${methodName}:`, error);
 		return null; // Return an appropriate default value on error
@@ -104,7 +152,7 @@ const handleScormInteraction: HandleScormInteraction = async (methodName, ...arg
 function sendMessageToParent(message: WrapperBridgeMessage) {
 	return new Promise((resolve, reject) => {
 		const requestId = generateUniqueId();
-		message.token = siteSettings.secretToken;
+		message.token = secretToken;
 		message.requestId = requestId;
 		message.time = new Date().toLocaleTimeString();
 
@@ -113,7 +161,7 @@ function sendMessageToParent(message: WrapperBridgeMessage) {
 
 		// Send the message to the parent
 		window.parent.postMessage(message, '*');
-		logger.debug('Message sent to parent:', message);
+		logger.debug(`[${message.requestId}] Message sent to parent (${message.type}/${message.methodName}):`, message);
 	});
 }
 
@@ -140,22 +188,57 @@ function addScormEventListeners() {
 	if (scormEventListenersAdded) return;
 	scormEventListenersAdded = true;
 
+	// Callback function has no parameters
+	window.API.on('LMSGetErrorString', async () => {
+		const result = 'UNKNOWN';
+		logger.scorm('error-string', '', result);
+		await handleScormInteraction('LMSGetErrorString', '', result);
+	});
+
+	// Callback function has no parameters
+	window.API.on('LMSGetDiagnostic', async () => {
+		const result = 'UNKNOWN';
+		logger.scorm('diagnostic', '', result);
+		await handleScormInteraction('LMSGetDiagnostic', '', result);
+	});
+
+	// Callback function has no parameters
+	window.API.on('LMSGetLastError', async () => {
+		const result = 'UNKNOWN';
+		logger.scorm('last-error', 'code', result);
+		await handleScormInteraction('LMSGetLastError', '', result);
+	});
+
+	// Callback function has no parameters
 	window.API.on('LMSInitialize', async () => {
-		logger.scorm('init');
-		await handleScormInteraction('LMSInitialize');
+		const result = window.API.renderCommitCMI().cmi;
+		logger.scorm('init', 'cmi', result);
+		await handleScormInteraction('LMSInitialize', '', JSON.stringify(result));
 	});
 
+	// Callback function has no parameters
+	window.API.on('LMSFinish', async () => {
+		const result = window.API.renderCommitCMI().cmi;
+
+		logger.scorm('finish', 'cmi', result);
+		await handleScormInteraction('LMSFinish', '', JSON.stringify(result));
+	});
+
+	// Callback function has no parameters
 	window.API.on('LMSCommit', async () => {
-		logger.scorm('commit');
-		await handleScormInteraction('LMSCommit');
+		const result = window.API.renderCommitCMI().cmi;
+		logger.scorm('commit', 'cmi', result);
+		await handleScormInteraction('LMSCommit', 'cmi', JSON.stringify(result));
 	});
 
+	// Callback function has one parameter
 	window.API.on('LMSGetValue.*', async (CMIElement: string) => {
 		const result = getCMIValue(CMIElement);
 		logger.scorm('get', CMIElement, result);
 		await handleScormInteraction('LMSGetValue', CMIElement, result);
 	});
 
+	// Callback function has two parameters
 	window.API.on('LMSSetValue.*', async (CMIElement: string, value: any[]) => {
 		logger.scorm('set', CMIElement, value);
 		await handleScormInteraction('LMSSetValue', CMIElement, value);
@@ -163,12 +246,12 @@ function addScormEventListeners() {
 }
 
 function initScormAPI(initData: object) {
-	logger.log('initScormAPI:', initData);
+	logger.debug('initScormAPI:', initData);
 
 	window.API = new Scorm12API(scormAgainSettings);
-	window.API.loadFromJSON(initData);
+	window.API.loadFromJSON({ cmi: initData });
 
 	addScormEventListeners();
 
-	interactiveIframe.src = siteSettings.interactiveURL;
+	interactiveIframe.src = interactiveURL;
 }
