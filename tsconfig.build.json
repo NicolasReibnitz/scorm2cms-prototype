@@ -1,0 +1,17 @@
+{
+	"extends": "./tsconfig.json",
+	"compilerOptions": {
+		"skipLibCheck": true,
+		"skipDefaultLibCheck": true,
+		"strict": false,
+		"noUnusedLocals": false,
+		"noUncheckedIndexedAccess": false,
+		"noImplicitOverride": false,
+		"strictNullChecks": false,
+		"strictBindCallApply": false,
+		"noUnusedParameters": false,
+		"noFallthroughCasesInSwitch": false,
+		"useDefineForClassFields": false
+	},
+	"exclude": ["node_modules"]
+}

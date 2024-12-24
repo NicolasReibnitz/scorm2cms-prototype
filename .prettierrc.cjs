@@ -33,7 +33,7 @@ module.exports = {
 			files: ['*.md', '*.mdx'],
 			options: {
 				printWidth: 120,
-				proseWrap: 'always'
+				proseWrap: 'never'
 			}
 		}
 	]

@@ -8,6 +8,7 @@
 		"forceConsistentCasingInFileNames": true,
 		"baseUrl": ".",
 		"esModuleInterop": true,
+		"removeComments": false,
 
 		/* Bundler mode */
 		"moduleResolution": "bundler",

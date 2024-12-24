@@ -3,16 +3,36 @@ import { Scorm12API } from 'scorm-again';
 import useConsoleLogger from '@global/console-logger';
 import interactiveURL from '/interactive/index.html?url';
 import { Settings } from 'scorm-again/src/types/api_types';
+import { Scorm12Impl } from 'scorm-again/src/Scorm12API';
 
 const interactiveIframe = document.getElementById('interactive-iframe') as HTMLIFrameElement;
 const interactiveIframeSrc = interactiveIframe.src;
-const btnTerminate = document.getElementById('btn-terminate');
 const secretToken = import.meta.env.VITE_SECRET_TOKEN; // Shared secret for validation (in .env file)
 const trustedDomains = import.meta.env.VITE_TRUSTED_DOMAINS.split(',').map((str: string) => str.trim());
 const pendingRequests = new Map();
 const devMode = window.parent.document.body.classList.contains('dev-mode');
 
-if (devMode) document.body.classList.add('dev-mode');
+if (devMode) {
+	document.body.classList.add('dev-mode');
+	document.body.insertAdjacentHTML(
+		'afterbegin',
+		'<h2 class="dev-only">wrapper iframe <button id="btn-terminate" class="btn-standard" type="button">terminate</button></h2>'
+	);
+
+	const btnTerminate = document.getElementById('btn-terminate');
+
+	btnTerminate?.addEventListener('click', () => {
+		if (interactiveIframe.src === interactiveIframeSrc) {
+			interactiveIframe.src = '';
+			btnTerminate.innerText = 'reload';
+		} else {
+			btnTerminate.innerText = 'terminate';
+			scormEventListenersAdded = false;
+
+			sendMessageToParent({ type: 'status', methodName: 'init', value: 'Re-initialize' });
+		}
+	});
+}
 
 let scormEventListenersAdded = false;
 
@@ -121,18 +141,6 @@ window.addEventListener('message', event => {
 	}
 });
 
-btnTerminate?.addEventListener('click', () => {
-	if (interactiveIframe.src === interactiveIframeSrc) {
-		interactiveIframe.src = '';
-		btnTerminate.innerText = 'Reload';
-	} else {
-		btnTerminate.innerText = 'Terminate';
-		scormEventListenersAdded = false;
-
-		sendMessageToParent({ type: 'status', methodName: 'init', value: 'Re-initialize' });
-	}
-});
-
 const handleScormInteraction: HandleScormInteraction = async (methodName, ...args) => {
 	// logger.debug(`SCORM API method called: ${methodName}`, args);
 
@@ -166,10 +174,12 @@ function sendMessageToParent(message: WrapperBridgeMessage) {
 }
 
 function getCMIValue(path: string) {
-	const keys = path.split('.');
-	let result = window.API;
+	if (!path) return undefined;
+	const keys = path.split('.') as (keyof Scorm12API)[];
+	let api = window.API;
+	let result;
 	for (const key of keys) {
-		result = result[key];
+		result = api[key];
 		if (result === undefined) {
 			return undefined;
 		}
@@ -211,24 +221,24 @@ function addScormEventListeners() {
 
 	// Callback function has no parameters
 	window.API.on('LMSInitialize', async () => {
-		const result = window.API.renderCommitCMI().cmi;
-		logger.scorm('init', 'cmi', result);
-		await handleScormInteraction('LMSInitialize', '', JSON.stringify(result));
+		const result = window.API.renderCommitCMI(true) as Scorm12Impl;
+		logger.scorm('init', 'cmi', result.cmi);
+		await handleScormInteraction('LMSInitialize', '', JSON.stringify(result.cmi));
 	});
 
 	// Callback function has no parameters
 	window.API.on('LMSFinish', async () => {
-		const result = window.API.renderCommitCMI().cmi;
+		const result = window.API.renderCommitCMI(true) as Scorm12Impl;
 
-		logger.scorm('finish', 'cmi', result);
-		await handleScormInteraction('LMSFinish', '', JSON.stringify(result));
+		logger.scorm('finish', 'cmi', result.cmi);
+		await handleScormInteraction('LMSFinish', '', JSON.stringify(result.cmi));
 	});
 
 	// Callback function has no parameters
 	window.API.on('LMSCommit', async () => {
-		const result = window.API.renderCommitCMI().cmi;
-		logger.scorm('commit', 'cmi', result);
-		await handleScormInteraction('LMSCommit', 'cmi', JSON.stringify(result));
+		const result = window.API.renderCommitCMI(true) as Scorm12Impl;
+		logger.scorm('commit', 'cmi', result.cmi);
+		await handleScormInteraction('LMSCommit', 'cmi', JSON.stringify(result.cmi));
 	});
 
 	// Callback function has one parameter
@@ -253,5 +263,5 @@ function initScormAPI(initData: object) {
 
 	addScormEventListeners();
 
-	interactiveIframe.src = interactiveURL;
+	interactiveIframe.src = import.meta.env.PROD ? 'index.html' : interactiveURL;
 }

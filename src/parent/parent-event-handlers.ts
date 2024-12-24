@@ -16,11 +16,35 @@ const { logger } = useConsoleLogger(loggerSettings);
  * @return {Promise<object>} - The LMS CMI data
  */
 const fetchLmsData = async (): Promise<object> => {
+	if (import.meta.env.PROD) return {};
+
 	const response = await fetch(import.meta.env.VITE_LMS_SERVER_FETCH);
 	const data = await response.json();
 	logger.scorm('FETCH', 'cmi', data);
 
 	return data;
+};
+
+/**
+ * Fetch the URL for the desired interactive package.
+ *
+ * This function sends a GET request to a mock server to retrieve the URL for
+ * the desired interactive package.
+ * This URL will be used to load the interactive package in an iframe.
+ *
+ * Please use this as a template to implement your own logic to fetch the URL.
+ *
+ * @return {Promise<string>} - The URL for the interactive package
+ */
+const fetchScolmUrl = async (): Promise<string> => {
+	if (import.meta.env.PROD) return 'wrapper.html';
+
+	const response = await fetch(import.meta.env.VITE_LMS_SERVER_URL);
+	const data = await response.json();
+
+	logger.scorm('FETCH', 'url', data.scolm_url);
+
+	return data.scolm_url;
 };
 
 /**
@@ -33,6 +57,11 @@ const fetchLmsData = async (): Promise<object> => {
  * @return {Promise<object | boolean>} - The response from the server or 'false' if an error occurred
  */
 const storeLmsData = async (cmiObject: object): Promise<object | boolean> => {
+	if (import.meta.env.PROD) {
+		logger.scorm('STORE 😬', 'cmi', cmiObject);
+		return cmiObject;
+	}
+
 	try {
 		const response = await fetch(import.meta.env.VITE_LMS_SERVER_STORE, {
 			method: 'POST',
@@ -232,5 +261,6 @@ export {
 	lmsCommitHandler,
 	lmsGetDiagnosticHandler,
 	lmsFinishHandler,
-	fetchLmsData
+	fetchLmsData,
+	fetchScolmUrl
 };

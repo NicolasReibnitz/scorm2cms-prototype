@@ -8,11 +8,12 @@ import {
 	lmsGetErrorStringHandler,
 	lmsCommitHandler,
 	fetchLmsData,
+	fetchScolmUrl,
 	lmsGetDiagnosticHandler,
 	lmsFinishHandler
 } from '@/parent/parent-event-handlers';
 
-const devMode = true;
+const devMode = false;
 const loggerSettings: LoggerSettings = {
 	siteName: 'Parent',
 	siteColor: '#1260aa',
@@ -22,9 +23,20 @@ const secretToken = import.meta.env.VITE_SECRET_TOKEN; // Shared secret for vali
 const trustedDomains = import.meta.env.VITE_TRUSTED_DOMAINS.split(',').map((str: string) => str.trim()); // Trusted domains for postMessage (in .env file)
 const { logger } = useConsoleLogger(loggerSettings);
 
-document.addEventListener('DOMContentLoaded', () => logger.info('Parent DOM loaded.'));
+document.addEventListener('DOMContentLoaded', async () => {
+	logger.info('Parent DOM loaded.');
 
-if (devMode) document.body.classList.add('dev-mode');
+	const wrapperIframe = document.getElementById('wrapper-iframe') as HTMLIFrameElement;
+	wrapperIframe.src = await fetchScolmUrl();
+});
+
+if (devMode) {
+	document.body.classList.add('dev-mode');
+	document.body.insertAdjacentHTML(
+		'afterbegin',
+		`<h1 class="dev-only">${import.meta.env.PROD ? 'PROD' : 'DEV'} parent server (cms)</h1>`
+	);
+}
 
 /**
  * Event listener for messages from the wrapper.
@@ -71,7 +83,7 @@ window.addEventListener('message', async event => {
 			request: data
 		};
 
-		(event.source as Window).postMessage(response, event.origin as string);
+		if (event.source) (event.source as Window).postMessage(response, event.origin as string);
 	} else if (data.type === 'scormInteraction') {
 		logger.debug('Received SCORM interaction from wrapper:', data);
 
@@ -108,6 +120,6 @@ window.addEventListener('message', async event => {
 
 		if (devMode) logScormCommunication('OUT', response);
 
-		(event.source as Window).postMessage(response, event.origin as string);
+		if (event.source) (event.source as Window).postMessage(response, event.origin as string);
 	}
 });

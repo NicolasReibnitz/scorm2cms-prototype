@@ -1,4 +1,4 @@
-import Scorm12API from 'scorm-again/src/Scorm12API.js';
+import { Scorm12API } from 'scorm-again';
 
 export {};
 
