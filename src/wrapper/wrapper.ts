@@ -108,7 +108,7 @@ if (interactiveIframe)
 
 // Global message handler to handle all incoming messages from the parent
 window.addEventListener('message', event => {
-	if (!trustedDomains.includes(event.origin)) return;
+	if (!trustedDomains.includes('*') && !trustedDomains.includes(event.origin)) return;
 	if (event.data.token !== secretToken) return;
 
 	logger.debug(
@@ -215,7 +215,7 @@ function addScormEventListeners() {
 	// Callback function has no parameters
 	window.API.on('LMSGetLastError', async () => {
 		const result = 'UNKNOWN';
-		logger.scorm('last-error', 'code', result);
+		if (result !== 'UNKNOWN') logger.scorm('last-error', 'code', result);
 		await handleScormInteraction('LMSGetLastError', '', result);
 	});
 

@@ -17,7 +17,7 @@ const devMode = false;
 const loggerSettings: LoggerSettings = {
 	siteName: 'Parent',
 	siteColor: '#1260aa',
-	logLevel: 0 // Log level for the logger (0: log, 1: error, 2: warn, 3: info, 4: debug, >=4: all)
+	logLevel: 3 // Log level for the logger (0: log, 1: error, 2: warn, 3: info, 4: debug, >=4: all)
 };
 const secretToken = import.meta.env.VITE_SECRET_TOKEN; // Shared secret for validation (in .env file)
 const trustedDomains = import.meta.env.VITE_TRUSTED_DOMAINS.split(',').map((str: string) => str.trim()); // Trusted domains for postMessage (in .env file)
@@ -45,7 +45,7 @@ if (devMode) {
  */
 window.addEventListener('message', async event => {
 	// Check if the origin is trusted
-	if (!trustedDomains.includes(event.origin)) {
+	if (!trustedDomains.includes('*') && !trustedDomains.includes(event.origin)) {
 		logger.warn('Received message from untrusted origin:', event.origin);
 		if (devMode)
 			logScormCommunication('IN', { type: 'error', value: 'Rejected: untrusted origin', origin: event.origin });

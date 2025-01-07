@@ -163,7 +163,7 @@ const lmsSetValueHandler = async (message: WrapperBridgeMessage): Promise<boolea
  * @return {Promise<number | undefined>} - The last error code
  */
 const lmsGetLastErrorHandler = async (message: WrapperBridgeMessage): Promise<string | undefined> => {
-	logger.scorm('last-error', 'code', message.value);
+	if (message.value !== 'UNKNOWN') logger.scorm('last-error', 'code', message.value);
 
 	return message.value;
 };

@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite';
 import { resolve, join } from 'path';
-import { viteSingleFile } from 'vite-plugin-singlefile';
+// import { viteSingleFile } from 'vite-plugin-singlefile';
 
 process.env.BROWSER = 'google chrome beta';
 
@@ -12,7 +12,9 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 export default defineConfig({
-	plugins: [viteSingleFile()],
+	plugins: [
+		/* viteSingleFile() */
+	],
 	root: './src',
 	base: './',
 	publicDir: '../public',
