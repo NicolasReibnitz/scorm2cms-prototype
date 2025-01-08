@@ -201,4 +201,4 @@ export function handleScormEvent(event: MessageEvent) {
 
 ## Sequence Diagram
 
-<img src="_assets/images/sequence-diagram-light-v3.png" style="width: 100%;" />
+<img src="_assets/images/sequence-diagram-light-v3-trans.png" style="width: 100%;" />
