@@ -13,11 +13,11 @@ import {
 	lmsFinishHandler
 } from '@/parent/parent-event-handlers';
 
-const devMode = false;
+const devMode = true;
 const loggerSettings: LoggerSettings = {
 	siteName: 'Parent',
 	siteColor: '#1260aa',
-	logLevel: 3 // Log level for the logger (0: log, 1: error, 2: warn, 3: info, 4: debug, >=4: all)
+	logLevel: 5 // Log level for the logger (0: log, 1: error, 2: warn, 3: info, 4: debug, >=4: all)
 };
 const secretToken = import.meta.env.VITE_SECRET_TOKEN; // Shared secret for validation (in .env file)
 const trustedDomains = import.meta.env.VITE_TRUSTED_DOMAINS.split(',').map((str: string) => str.trim()); // Trusted domains for postMessage (in .env file)

@@ -10,7 +10,8 @@ const interactiveIframeSrc = interactiveIframe.src;
 const secretToken = import.meta.env.VITE_SECRET_TOKEN; // Shared secret for validation (in .env file)
 const trustedDomains = import.meta.env.VITE_TRUSTED_DOMAINS.split(',').map((str: string) => str.trim());
 const pendingRequests = new Map();
-const devMode = window.parent.document.body.classList.contains('dev-mode');
+// const devMode = window.parent.document.body.classList.contains('dev-mode');
+const devMode = true;
 
 if (devMode) {
 	document.body.classList.add('dev-mode');
@@ -39,7 +40,7 @@ let scormEventListenersAdded = false;
 const loggerSettings: LoggerSettings = {
 	siteName: 'Wrapper',
 	siteColor: 'rgb(0 192 204)',
-	logLevel: 3 // Log level for the logger (0: log, 1: error, 2: warn, 3: info, 4: debug, >=4: all)
+	logLevel: 5 // Log level for the logger (0: log, 1: error, 2: warn, 3: info, 4: debug, >=4: all)
 };
 
 const { logger } = useConsoleLogger(loggerSettings);

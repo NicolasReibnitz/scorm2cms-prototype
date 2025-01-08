@@ -46,7 +46,9 @@ app.get('/api/lms/data', (_req, res) => {
 
 // Endpoint to retrieve SCOLM URL
 app.get('/api/lms/scolm-url', (_req, res) => {
-	const data = { scolm_url: '../wrapper/index.html' };
+	const data = {
+		scolm_url: 'https://interactive-delivery.com/daslaboratory/example-scolm-module-1/wrapper.html'
+	};
 
 	return res.status(200).json(data);
 });
