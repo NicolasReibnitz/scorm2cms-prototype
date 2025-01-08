@@ -1,6 +1,10 @@
 # SCORM2CMS Prototype
 
-**Note:** I set the project up to make it as easy to understand and navigate as possible. This may or may not have worked. If anything is unclear, please let me know.
+<img src="_assets/images/web-page.png" style="width: 100%;" />
+
+## Notes
+
+I set the project up to make it as easy to understand and navigate as possible. This may or may not have worked. If anything is unclear, please let me know.
 
 Every event handler the CMS can use is set up and documented in the `src/parent/parent-event-handlers.ts` file. I would suggest using the `lmsCommitHandler` to store the current course data in the database.
 
@@ -8,7 +12,13 @@ The `fetchLmsData` and `storeLmsData` functions in the same file can be used to 
 
 If you have any questions, please do not hesitate to ask!
 
-## Usage
+## Further Documentation
+
+-   [System Overview](./SYSTEM-OVERVIEW.md)
+-   [Integration System Manual and API Documentation](./SCORM2CMS-INTEGRATION-MANUAL.md)
+-   [SCORM 1.2 Run-Time Reference Guide](./SCORM-1.2-RUN_TIME-REFERENCE-GUIDE.md)
+
+## Getting Started
 
 **Clone the Repository**: Start by cloning this repository to your local machine.
 
