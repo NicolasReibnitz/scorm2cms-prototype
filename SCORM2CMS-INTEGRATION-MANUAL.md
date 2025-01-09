@@ -183,7 +183,9 @@ export function handleScormEvent(event: MessageEvent) {
 
 ---
 
-## SCORM v1.2 JSON Schema
+## SCORM v1.2 JSON Schema Example
+
+**Note:** All fields are strings! SCORM doesn't know any other data types.
 
 ```json
 {
@@ -214,8 +216,6 @@ export function handleScormEvent(event: MessageEvent) {
 	"interactions": {}
 }
 ```
-
-**Note:** All fields are strings! SCORM doesn't know any other data types.
 
 ---
 
